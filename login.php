@@ -1,25 +1,32 @@
 <?php
 require_once 'db.php';  
+session_start();
 if($_SERVER["REQUEST_METHOD"] == "POST"){
-	$conn = new mysqli($servername, $username, $password, $dbname);
-	$username=$_POST['username'];
+	$email=$_POST['email'];
 	$psswrd=$_POST['password'];
-	$sql = "SELECT password FROM User WHERE email=?";
+	$sql = "SELECT user_ID,fname,password FROM User WHERE email=?";
 	$stmt=$conn->prepare($sql);
-	$stmt->bind_param('s',$username);	
+	$stmt->bind_param('s',$email);	
 	$stmt->execute();
-	$temp='';
-	$stmt->bind_result($temp);
+	$result='';
+	$uid='';
+	$stmt->bind_result($uid,$name,$result);
 	if($stmt->fetch()){
-		$stmt->fetch();
-	if (password_verify($psswrd,$temp)) {
-    echo 'Password is valid!';
-} else {
-    echo 'Invalid password.';
-}
-}else{echo $stmt->num_rows();}
+		if (password_verify($psswrd,$result)) {
+    		$_SESSION['loggedin']=TRUE;
+    		$_SESSION['uid']=$uid;
+    		$_SESSION['name']=$name;
+    		echo "loggedin";
+		} else {
+    			echo 'Invalid Password';
+				}
+	}else{
+		echo 'No Such User';
+	}
 	$stmt->close();
 	$conn->close();
-
+}else{
+	header("Location: index.php");exit();
 }
 
+?>

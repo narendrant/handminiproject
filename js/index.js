@@ -1,7 +1,26 @@
 $(document).ready(function(){
+ var ismob=false;
+ $('#locmob').on('click',function(){
+  ismob=true;
+ });
+  var location='LOCATION';
+
+  $('.location').on('click',function(){
+    location=$(this).html();
+    if(location=='Other')
+      location="LOCATION";
+    $('#loc').empty();    
+    //alert(location);
+    $('#loc').html(location);
+    if(ismob){
+      Materialize.toast(""+location,4000);
+      ismob=false;
+    }
+  });
+
     $('.button-collapse').sideNav();
 
-    $('.dropdown-button').dropdown({
+    $('.dropdown-button1').dropdown({
       inDuration: 300,
       outDuration: 225,
       constrain_width: false, // Does not change width of dropdown to that of the activator
@@ -11,7 +30,16 @@ $(document).ready(function(){
     }
 
   );
+    $('.dropdown-button2').dropdown({
+      inDuration: 300,
+      outDuration: 225,
+      constrain_width: false, // Does not change width of dropdown to that of the activator
+      hover: false, // Activate on hover
+      gutter: 0, // Spacing from edge
+      belowOrigin: true // Displays dropdown below the button
+    }
 
+  );
 
 	    $('.modal-trigger').leanModal();
 
@@ -31,6 +59,22 @@ $(document).ready(function(){
           });
         event.preventDefault();
 	});
+  $( "#loginform1" ).submit(function (event) { 
+           $.ajax({
+            type: 'post',
+            url: 'login.php',
+            data: $('#loginform1').serialize(),
+            success: function (data) {
+              if(data=="loggedin"){
+                console.log((data));
+                window.location="index.php"
+              }else{
+              $('#error1').html(data);
+              }
+            }
+          });
+        event.preventDefault();
+  });
 $('#signupform').ajaxForm({                 
             data: $('#signupform').serialize(),
             success: function (data) {
@@ -41,8 +85,34 @@ $('#signupform').ajaxForm({
               $('#serror').html(data);
             }
           });
+
+function fill(Value)
+{
+$('#keyword').val(Value);
+}
+
+$("#keyword").keyup(function() {
+var name = $('#keyword').val();
+if(name=="")
+{
+$("#display").html("");
+}
+else
+{
+$.ajax({
+type: "POST",
+url: "searchloc.php",
+data: 'keyword='+ name +'&loc='+ location,
+success: function(html){
+//alert(location);
+$("#display").empty();
+$("#display").append(html);
+}
 });
-function logout(){
+}
+});
+});
+  function logout(){
 
            $.ajax({
             type: 'post',
@@ -52,3 +122,4 @@ function logout(){
               }
             });
   }
+

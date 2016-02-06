@@ -1,6 +1,7 @@
 <?php
 require_once 'db.php';
 require_once 'uploads.php';
+require_once 'mails.php';
 session_start();
 if($_SERVER["REQUEST_METHOD"] == "POST"){  
 	$email=$_POST['email'];
@@ -44,6 +45,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 			$_SESSION['loggedin']=TRUE;
     		$_SESSION['uid']=$result;
     		$_SESSION['name']=$name;
+    		signup_mail($email,$fname);
 			echo "signedup";
 		}
 	}

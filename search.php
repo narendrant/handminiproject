@@ -55,7 +55,7 @@
 	   <nav>
 	    <a href="#" data-activates="slide-out " class="button-collapse"><i class="mdi-navigation-menu"></i></a>
 		<div class="nav-wrapper">
-      <a href="#" class="brand-logo center">Some Text</a>
+      <a href="#" class="brand-logo center">Search Results</a>
       <ul id="nav-mobile" class="right hide-on-med-and-down">
              <li><a class='btn nav-wrapper hide-on-med-and-down' style="background:transparent;border:1px solid white;" id="rent" href='#' style="line-height: 30px;">Rent Your Item Now</a></li>
       <?php if (isset($_SESSION['loggedin']) && $_SESSION['loggedin']): ?>
@@ -95,9 +95,9 @@
 
         <div id="signupmob" class="modal" style="background:white; color:black; padding: 10px;width:350px;height: 900px;overflow-x:hidden;">
 			<div class="modal-content">
-				<form id="signupform1" action="signup.php" method="post" enctype="multipart/form-data">
+				<form id="signupform" action="signup.php" method="post" enctype="multipart/form-data">
 						<div  class="col s12 offset-s3" style="padding-left:46px;">
-							<center><p id="serror1" class="red-text" ></p></center>
+							<center><p id="serror" class="red-text" ></p></center>
 						</div>
 
 						<div class="row">
@@ -405,50 +405,34 @@
 
 	</header>
 	   <center>
-	   <div class="row">
-					<div class="input-field col m6 s9 offset-m3">
-					  <i class="material-icons prefix">search</i>
-					  <input id="keyword" name="keyword" type="text" class="validate" autocomplete="off">
-					  <div ><ul id="display" style="padding-left:50px;" ></ul></div>
-					</div>		
-				<div class="input-field col s1 hide-on-large-only" style="margin-left: 0px;">
-				<a class='dropdown-button dropdown-button2 btn' id="locmob" href='#' data-activates='dropdown1'><i  class="material-icons">my_location</i></a>
-				</div>
-				
-				<div class="input-field col s2 " style="margin-left:15px;">
-					<a class='dropdown-button  dropdown-button2 btn hide-on-med-and-down' id="dropbutton" href='#' data-activates='dropdown1' style="line-height: 30px;"><span id="loc">Location</span><i  class="material-icons" style="padding-left:8px;">arrow_drop_down</i></a>
-					<ul id='dropdown1' class='dropdown-content left'>
-						<li><a href="#" class="location">Kochi</a></li>
-						<li class="divider"></li>
-						<li><a href="#!" class="location">Chennai</a></li>
-						<li class="divider"></li>
-						<li><a href="#!" class="location">Bangalore</a></li>
-						<li class="divider"></li>
-						<li><a href="#!" class="location">Other</a></li>
-					</ul>
-				  </div>
-	   </div>
-	   <?php
-	   	$sql = "SELECT product_ID,pname,price_day,price_week,price_month,description FROM Product ORDER BY rating DESC";
-		$stmt=$conn->prepare($sql);
-		//$stmt->bind_param();	
+	   <br><br><br><br>
+<?php
+	$pname='test';
+	$pid='';
+	$num_rows=0;
+	$keyword=$loc=null;
+	$result= '';    
+	$keyword=$_GET['keyword'];
+    if(isset($_GET['loc']) && ($_GET['loc']!='LOCATION')){
+    	$query= "SELECT pname,description,product_ID FROM Product WHERE location = ? AND pname LIKE ? OR description LIKE ? OR category LIKE ?  ORDER BY rating DESC";
+    	$loc=$_GET['loc'];
+		$stmt=$conn->prepare($query);
+	    $param="%".$keyword."%";		
+	    $stmt->bind_param('ssss',$loc,$param,$param,$param);	
 		$stmt->execute();
-		$pid='';
-		$pname='';
-		$price_day='';
-		$price_week='';
-		$price_month='';
 		$description='';
-		$stmt->bind_result($pid,$pname,$price_day,$price_week,$price_month,$description);
-		$flag=0;
-		while ($stmt->fetch()) {
-		if ($flag==0) {
-			echo "<div class='row'>";			
-			echo "<div class='col m2 s10 offset-s1 offset-m3 offset-s1'>";
-		}else{
-			echo "<div class='col m2 s10 offset-s1'>";			
-		}
-			echo "<div class='card small'>
+		$stmt->bind_result($pname,$description,$pid);
+       	$num_rows=0;
+			$flag=0;
+			while ($stmt->fetch()) {
+				$num_rows++;
+				if ($flag==0) {
+					echo "<div class='row'>";			
+					echo "<div class='col m2 s10 offset-s1 offset-m3 offset-s1'>";
+				}else{
+					echo "<div class='col m2 s10 offset-s1'>";			
+				}
+				echo "<div class='card small'>
 				<div class='card-image waves-effect waves-block waves-light'>
 					<img class='activator' src='images/products/1/".$pid."' onerror=\"this.src='images/logo.png'\">
 				</div>
@@ -467,7 +451,52 @@
 		 	$flag=0;
 		 	echo "</div></center>";
 		 }
-		}
+		}   			
+		if ($num_rows==0) {
+   			echo "<span>No Results in ".$_GET['loc']."</span>";
+   		}
+   	}else {
+   			$query="SELECT pname,description,product_ID FROM Product WHERE pname LIKE ? OR description LIKE ? OR category LIKE ?   ORDER BY rating DESC";
+			$stmt=$conn->prepare($query);
+    		$param="%".$keyword."%";
+			$stmt->bind_param('sss',$param,$param,$param);	
+			$stmt->execute();
+			$description='';
+			$stmt->bind_result($pname,$description,$pid);
+			$result='';
+			$flag=0;
+			while ($stmt->fetch()) {
+				$num_rows++;
+				if ($flag==0) {
+					echo "<div class='row'>";			
+					echo "<div class='col m2 s10 offset-s1 offset-m3 offset-s1'>";
+				}else{
+					echo "<div class='col m2 s10 offset-s1'>";			
+				}
+				echo "<div class='card small'>
+				<div class='card-image waves-effect waves-block waves-light'>
+					<img class='activator' src='images/products/1/".$pid."' onerror=\"this.src='images/logo.png'\">
+				</div>
+				<div class='card-content'>
+					<div  style='text-overflow:ellipsis;overflow:hidden;white-space:nowrap;'><span class='card-title activator grey-text text-darken-4'  >".$pname."<i class='material-icons right' >info_outline</i></span></div>
+					<span><a href='product.php?pid=".$pid."'>Check Out Product</a></span>
+				</div>
+				<div class='card-reveal'>
+					<i class='material-icons right'>close</i><span class='card-title grey-text text-darken-4'>".$pname."</span>
+					<p>".$description."</p>
+				</div>
+			</div>
+        </div>";
+		 $flag++;
+		 if ($flag==4) {
+		 	$flag=0;
+		 	echo "</div></center>";
+		 }
+		}   			
+		if ($num_rows==0) {
+   			echo "<span>No Results</span>";
+   		}
+    }
 	   ?>
 
     </body>

@@ -85,13 +85,27 @@ $('#signupform').ajaxForm({
               $('#serror').html(data);
             }
           });
+$('#signupform1').ajaxForm({                 
+            data: $('#signupform').serialize(),
+            success: function (data) {
+              if(data=="signedup"){
+                console.log((data));
+                window.location="index.php"
+              }
+              $('#serror1').html(data);
+            }
+          });
 
 function fill(Value)
 {
 $('#keyword').val(Value);
 }
 
-$("#keyword").keyup(function() {
+$("#keyword").keyup(function(e) {
+if(e.keyCode===13){
+  var name = $('#keyword').val();
+  window.location="search.php?keyword="+name+"&loc="+location;
+}  
 var name = $('#keyword').val();
 if(name=="")
 {

@@ -404,71 +404,165 @@
   </nav>
 
 	</header>
-	   <center>
-	   <div class="row">
-					<div class="input-field col m6 s9 offset-m3">
-					  <i class="material-icons prefix">search</i>
-					  <input id="keyword" name="keyword" type="text" class="validate" autocomplete="off">
-					  <div ><ul id="display" style="padding-left:50px;" ></ul></div>
-					</div>		
-				<div class="input-field col s1 hide-on-large-only" style="margin-left: 0px;">
-				<a class='dropdown-button dropdown-button2 btn' id="locmob" href='#' data-activates='dropdown1'><i  class="material-icons">my_location</i></a>
+<div class="row">
+		<div class="col m4 offset-m3">
+		<h5>My products</h5>
+		</div>
+	</div>
+	<div class="row">
+        <div class="col s10 m2 offset-m3 offset-s1">
+			<div class="card small">
+				<div class="card-image waves-effect waves-block waves-light">
+					<img class="activator" src="images/logo.png">
 				</div>
-				
-				<div class="input-field col s2 " style="margin-left:15px;">
-					<a class='dropdown-button  dropdown-button2 btn hide-on-med-and-down' id="dropbutton" href='#' data-activates='dropdown1' style="line-height: 30px;"><span id="loc">Location</span><i  class="material-icons" style="padding-left:8px;">arrow_drop_down</i></a>
-					<ul id='dropdown1' class='dropdown-content left'>
-						<li><a href="#" class="location">Kochi</a></li>
-						<li class="divider"></li>
-						<li><a href="#!" class="location">Chennai</a></li>
-						<li class="divider"></li>
-						<li><a href="#!" class="location">Bangalore</a></li>
-						<li class="divider"></li>
-						<li><a href="#!" class="location">Other</a></li>
-					</ul>
-				  </div>
-	   </div>
-	   <?php
-	   	$sql = "SELECT product_ID,pname,price_day,price_week,price_month,description FROM Product ORDER BY rating DESC";
-		$stmt=$conn->prepare($sql);
-		//$stmt->bind_param();	
-		$stmt->execute();
-		$pid='';
-		$pname='';
-		$price_day='';
-		$price_week='';
-		$price_month='';
-		$description='';
-		$stmt->bind_result($pid,$pname,$price_day,$price_week,$price_month,$description);
-		$flag=0;
-		while ($stmt->fetch()) {
-		if ($flag==0) {
-			echo "<div class='row'>";			
-			echo "<div class='col m2 s10 offset-s1 offset-m3 offset-s1'>";
-		}else{
-			echo "<div class='col m2 s10 offset-s1'>";			
-		}
-			echo "<div class='card small'>
-				<div class='card-image waves-effect waves-block waves-light'>
-					<img class='activator' src='images/products/1/".$pid."' onerror=\"this.src='images/logo.png'\">
+				<div class="card-content">
+					<span class="card-title activator grey-text text-darken-4">Card Title<i class="material-icons right">more_vert</i></span>
+					<p><a href="#">This is a link</a></p>
 				</div>
-				<div class='card-content'>
-					<div  style='text-overflow:ellipsis;overflow:hidden;white-space:nowrap;'><span class='card-title activator grey-text text-darken-4'  >".$pname."<i class='material-icons right' >info_outline</i></span></div>
-					<span><a href='product.php?pid=".$pid."'>Check Out Product</a></span>
-				</div>
-				<div class='card-reveal'>
-					<i class='material-icons right'>close</i><span class='card-title grey-text text-darken-4'>".$pname."</span>
-					<p>".$description."</p>
+				<div class="card-reveal">
+					<span class="card-title grey-text text-darken-4">Card Title<i class="material-icons right">close</i></span>
+					<p>Here is some more information about this product that is only revealed once clicked on.</p>
 				</div>
 			</div>
-        </div>";
-		 $flag++;
-		 if ($flag==4) {
-		 	$flag=0;
-		 	echo "</div></center>";
-		 }
-		}
-	   ?>
+        </div>
+		
+		
+		<div class="col m2 s10 offset-s1">
+			<div class="card small">
+				<div class="card-image waves-effect waves-block waves-light">
+					<img class="activator" src="images/logo.png">
+				</div>
+				<div class="card-content">
+					<span class="card-title activator grey-text text-darken-4">Card Title<i class="material-icons right">more_vert</i></span>
+					<p><a href="#">This is a link</a></p>
+				</div>
+				<div class="card-reveal">
+					<span class="card-title grey-text text-darken-4">Card Title<i class="material-icons right">close</i></span>
+					<p>Here is some more information about this product that is only revealed once clicked on.</p>
+				</div>
+			</div>
+        </div>
+		
+		<div class="col m2 s10 offset-s1">
+          <div class="card small">
+				<div class="card-image waves-effect waves-block waves-light">
+					<img class="activator" src="images/logo.png">
+				</div>
+				<div class="card-content">
+					<span class="card-title activator grey-text text-darken-4">Card Title<i class="material-icons right">more_vert</i></span>
+					<p><a href="#">This is a link</a></p>
+				</div>
+				<div class="card-reveal">
+					<span class="card-title grey-text text-darken-4">Card Title<i class="material-icons right">close</i></span>
+					<p>Here is some more information about this product that is only revealed once clicked on.</p>
+				</div>
+			</div>
+        </div>
+		
+		<div class="col m2 s10 offset-s1">
+          <div class="card small">
+				<div class="card-image waves-effect waves-block waves-light">
+					<img class="activator" src="images/logo.png">
+				</div>
+				<div class="card-content">
+					<span class="card-title activator grey-text text-darken-4">Card Title<i class="material-icons right">more_vert</i></span>
+					<p><a href="#">This is a link</a></p>
+				</div>
+				<div class="card-reveal">
+					<span class="card-title grey-text text-darken-4">Card Title<i class="material-icons right">close</i></span>
+					<p>Here is some more information about this product that is only revealed once clicked on.</p>
+				</div>
+			</div>
+        </div>
+		
+
+	  
+	  
+    </div>
+    <div class="row">
+		<div class="col m4 s12 offset-m3">
+		<h5>Recent Transactions</h5>
+		</div>
+	</div>
+	
+	<div class="row">
+		<div class="col m8 s12 offset-m3">
+			<table class="highlight striped">
+			<thead>
+			  <tr>
+				  <th data-field="product name">Product Name</th>
+				  <th data-field="transaction id">Transaction ID</th>
+				  <th data-field="rentee">Rentee</th>
+				  <th data-field="date">Date</th>
+			  </tr>
+			</thead>
+
+			<tbody>
+			  <tr>
+				<td>pn1</td>
+				<td>tid1</td>
+				<td>r1</td>
+				<td>d1</td>
+			  </tr>
+			  <tr>
+				<td>pn2</td>
+				<td>tid2</td>
+				<td>r2</td>
+				<td>d2</td>
+			  </tr>
+			  <tr>
+				<td>pn3</td>
+				<td>tid3</td>
+				<td>r3</td>
+				<td>d3</td>
+			  </tr>
+			</tbody>
+		  </table>
+		</div>
+	</div>
+
+	
+	<div class="row" style="margin-top: 10px;">
+		<div class="col m4 s12 offset-m3">
+		<h5>Pending Transactions</h5>
+		</div>
+	</div>
+	
+	<div class="row">
+		<div class="col m8 s12 offset-m3">
+			<table class="highlight striped">
+			<thead>
+			  <tr>
+				  <th data-field="product name">Product Name</th>
+				  <th data-field="transaction id">Transaction ID</th>
+				  <th data-field="rentee">Rentee</th>
+				  <th data-field="date">Date</th>
+			  </tr>
+			</thead>
+
+			<tbody>
+			  <tr>
+				<td>pn1</td>
+				<td>tid1</td>
+				<td>r1</td>
+				<td>d1</td>
+			  </tr>
+			  <tr>
+				<td>pn2</td>
+				<td>tid2</td>
+				<td>r2</td>
+				<td>d2</td>
+			  </tr>
+			  <tr>
+				<td>pn3</td>
+				<td>tid3</td>
+				<td>r3</td>
+				<td>d3</td>
+			  </tr>
+			</tbody>
+		  </table>
+		</div>
+	</div>
 
     </body>
   </html>

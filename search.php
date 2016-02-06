@@ -61,7 +61,7 @@
       <?php if (isset($_SESSION['loggedin']) && $_SESSION['loggedin']): ?>
         <li><img style="height:50px;width:50px;"src=<?php echo "images/profile_pics/".$_SESSION['uid'];?> class="circle propic" onerror="this.src='images/logo.png';"><li style="padding-left:10px;"><?php echo $_SESSION["name"];?></li></li><li><a href="#" data-activates="drop" class="dropdown-button  dropdown-button1 disableClick"><i class="material-icons ">arrow_drop_down</i></a></li> 
 					<ul id='drop' class='dropdown-content'>
-						<li><a href="#">My Account</a></li>
+						<li><a href="myaccount.php">My Account</a></li>
 						<li class="divider"></li>
 						<li><a href="#" id="logout" onclick="logout()" >Logout</a></li>
 					</ul>

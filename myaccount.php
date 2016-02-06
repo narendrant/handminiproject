@@ -61,8 +61,6 @@
       <?php if (isset($_SESSION['loggedin']) && $_SESSION['loggedin']): ?>
         <li><img style="height:50px;width:50px;"src=<?php echo "images/profile_pics/".$_SESSION['uid'];?> class="circle propic" onerror="this.src='images/logo.png';"><li style="padding-left:10px;"><?php echo $_SESSION["name"];?></li></li><li><a href="#" data-activates="drop" class="dropdown-button  dropdown-button1 disableClick"><i class="material-icons ">arrow_drop_down</i></a></li> 
 					<ul id='drop' class='dropdown-content'>
-						<li><a href="#">My Account</a></li>
-						<li class="divider"></li>
 						<li><a href="#" id="logout" onclick="logout()" >Logout</a></li>
 					</ul>
 		
@@ -404,96 +402,91 @@
   </nav>
 
 	</header>
-<div class="row">
-		<div class="col m4 offset-m3">
-		<h5>My products</h5>
+<?php  if ($_SESSION['loggedin']==FALSE) {
+  		echo "<div class='row'>
+		<div class='col m4 offset-m3'>
+		<span>Please Log in to view your products. </span>
+		</div>
+	</div>";
+  }else{
+        $uid=$_SESSION['uid'];
+        	   
+	   	$sql = "SELECT product_ID,pname,price_day,price_week,price_month,description FROM Product WHERE u_ID=?";
+		$stmt=$conn->prepare($sql);
+		$stmt->bind_param('s',$uid);	
+		$stmt->execute();
+		$pid='';
+		$pname='';
+		$price_day='';
+		$price_week='';
+		$price_month='';
+		$description='';
+		$stmt->bind_result($pid,$pname,$price_day,$price_week,$price_month,$description);
+		$flag=0;
+		$num_rows=0;
+		while ($stmt->fetch()) {
+		$num_rows++;
+		if ($num_rows==1) {
+			  	echo "<div class='row'>
+		<div class='col m4 offset-m3'>
+		<h5>My Products</h5>
 		</div>
 	</div>
-	<div class="row">
-        <div class="col s10 m2 offset-m3 offset-s1">
-			<div class="card small">
-				<div class="card-image waves-effect waves-block waves-light">
-					<img class="activator" src="images/logo.png">
+	<div class='row'>";
+		}
+		if ($flag==0) {
+			echo "<div class='row'>";			
+			echo "<div class='col m2 s10 offset-s1 offset-m3 offset-s1'>";
+		}else{
+			echo "<div class='col m2 s10 offset-s1'>";			
+		}
+			echo "<div class='card small'>
+				<div class='card-image waves-effect waves-block waves-light'>
+					<img class='activator' src='images/products/1/".$pid."' onerror=\"this.src='images/logo.png'\">
 				</div>
-				<div class="card-content">
-					<span class="card-title activator grey-text text-darken-4">Card Title<i class="material-icons right">more_vert</i></span>
-					<p><a href="#">This is a link</a></p>
+				<div class='card-content'>
+					<div  style='text-overflow:ellipsis;overflow:hidden;white-space:nowrap;'><span class='card-title activator grey-text text-darken-4'  >".$pname."<i class='material-icons right' >info_outline</i></span></div>
+					<span><a href='product.php?pid=".$pid."'>Check Out Product</a></span>
 				</div>
-				<div class="card-reveal">
-					<span class="card-title grey-text text-darken-4">Card Title<i class="material-icons right">close</i></span>
-					<p>Here is some more information about this product that is only revealed once clicked on.</p>
-				</div>
-			</div>
-        </div>
-		
-		
-		<div class="col m2 s10 offset-s1">
-			<div class="card small">
-				<div class="card-image waves-effect waves-block waves-light">
-					<img class="activator" src="images/logo.png">
-				</div>
-				<div class="card-content">
-					<span class="card-title activator grey-text text-darken-4">Card Title<i class="material-icons right">more_vert</i></span>
-					<p><a href="#">This is a link</a></p>
-				</div>
-				<div class="card-reveal">
-					<span class="card-title grey-text text-darken-4">Card Title<i class="material-icons right">close</i></span>
-					<p>Here is some more information about this product that is only revealed once clicked on.</p>
+				<div class='card-reveal'>
+					<i class='material-icons right'>close</i><span class='card-title grey-text text-darken-4'>".$pname."</span>
+					<p>".$description."</p>
 				</div>
 			</div>
-        </div>
-		
-		<div class="col m2 s10 offset-s1">
-          <div class="card small">
-				<div class="card-image waves-effect waves-block waves-light">
-					<img class="activator" src="images/logo.png">
-				</div>
-				<div class="card-content">
-					<span class="card-title activator grey-text text-darken-4">Card Title<i class="material-icons right">more_vert</i></span>
-					<p><a href="#">This is a link</a></p>
-				</div>
-				<div class="card-reveal">
-					<span class="card-title grey-text text-darken-4">Card Title<i class="material-icons right">close</i></span>
-					<p>Here is some more information about this product that is only revealed once clicked on.</p>
-				</div>
-			</div>
-        </div>
-		
-		<div class="col m2 s10 offset-s1">
-          <div class="card small">
-				<div class="card-image waves-effect waves-block waves-light">
-					<img class="activator" src="images/logo.png">
-				</div>
-				<div class="card-content">
-					<span class="card-title activator grey-text text-darken-4">Card Title<i class="material-icons right">more_vert</i></span>
-					<p><a href="#">This is a link</a></p>
-				</div>
-				<div class="card-reveal">
-					<span class="card-title grey-text text-darken-4">Card Title<i class="material-icons right">close</i></span>
-					<p>Here is some more information about this product that is only revealed once clicked on.</p>
-				</div>
-			</div>
-        </div>
-		
+        </div>";
+		 $flag++;
+		 if ($flag==4) {
+		 	$flag=0;
+		 	echo "</div></center>";
+		 }
+		}
+		if ($num_rows==0) {
+			  	echo "<div class='row'>
+		<div class='col m4 offset-m3'>
+		<h6 style='padding-top:40px;'>You Have Not Rented-Out Any Products</h6>
+		</div>
+	</div>
+	<div class='row'>";
+		}
 
 	  
 	  
-    </div>
-    <div class="row">
-		<div class="col m4 s12 offset-m3">
+    echo"</div>
+    <div class='row'>
+		<div class='col m4 s12 offset-m3'>
 		<h5>Recent Transactions</h5>
 		</div>
 	</div>
 	
-	<div class="row">
-		<div class="col m8 s12 offset-m3">
-			<table class="highlight striped">
+	<div class='row'>
+		<div class='col m8 s12 offset-m3'>
+			<table class='highlight striped'>
 			<thead>
 			  <tr>
-				  <th data-field="product name">Product Name</th>
-				  <th data-field="transaction id">Transaction ID</th>
-				  <th data-field="rentee">Rentee</th>
-				  <th data-field="date">Date</th>
+				  <th data-field='product name'>Product Name</th>
+				  <th data-field='transaction id'>Transaction ID</th>
+				  <th data-field='rentee'>Rentee</th>
+				  <th data-field='date'>Date</th>
 			  </tr>
 			</thead>
 
@@ -522,21 +515,21 @@
 	</div>
 
 	
-	<div class="row" style="margin-top: 10px;">
-		<div class="col m4 s12 offset-m3">
+	<div class='row' style='margin-top: 10px;'>
+		<div class='col m4 s12 offset-m3'>
 		<h5>Pending Transactions</h5>
 		</div>
 	</div>
 	
-	<div class="row">
-		<div class="col m8 s12 offset-m3">
-			<table class="highlight striped">
+	<div class='row'>
+		<div class='col m8 s12 offset-m3'>
+			<table class='highlight striped'>
 			<thead>
 			  <tr>
-				  <th data-field="product name">Product Name</th>
-				  <th data-field="transaction id">Transaction ID</th>
-				  <th data-field="rentee">Rentee</th>
-				  <th data-field="date">Date</th>
+				  <th data-field='product name'>Product Name</th>
+				  <th data-field='transaction id'>Transaction ID</th>
+				  <th data-field='rentee'>Rentee</th>
+				  <th data-field='date'>Date</th>
 			  </tr>
 			</thead>
 
@@ -562,10 +555,11 @@
 			</tbody>
 		  </table>
 		</div>
-	</div>
-
+	</div>";
+	}
+	?>
     </body>
   </html>
   <?php
   session_write_close();
-  ?>      
+  ?>   

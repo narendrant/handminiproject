@@ -57,7 +57,7 @@
 		<div class="nav-wrapper">
       <a href="#" class="brand-logo center">Search Results</a>
       <ul id="nav-mobile" class="right hide-on-med-and-down">
-             <li><a class='btn nav-wrapper hide-on-med-and-down' style="background:transparent;border:1px solid white;" id="rent" href='#' style="line-height: 30px;">Rent Your Item Now</a></li>
+             <li><a class='btn nav-wrapper hide-on-med-and-down' style="background:transparent;border:1px solid white;" id="rent" href='rent_item.php' style="line-height: 30px;">Rent Your Item Now</a></li>
       <?php if (isset($_SESSION['loggedin']) && $_SESSION['loggedin']): ?>
         <li><img style="height:50px;width:50px;"src=<?php echo "images/profile_pics/".$_SESSION['uid'];?> class="circle propic" onerror="this.src='images/logo.png';"><li style="padding-left:10px;"><?php echo $_SESSION["name"];?></li></li><li><a href="#" data-activates="drop" class="dropdown-button  dropdown-button1 disableClick"><i class="material-icons ">arrow_drop_down</i></a></li> 
 					<ul id='drop' class='dropdown-content'>

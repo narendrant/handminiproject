@@ -105,7 +105,12 @@ $("#keyword").keyup(function(e) {
 if(e.keyCode===13){
   var name = $('#keyword').val();
   window.location="search.php?keyword="+name+"&loc="+location;
-}  
+}
+$('#search').on('click',function(){
+  var name = $('#keyword').val();
+  window.location="search.php?keyword="+name+"&loc="+location;
+  
+});  
 var name = $('#keyword').val();
 if(name=="")
 {

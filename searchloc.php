@@ -44,7 +44,7 @@ $keyword=$_POST['keyword'];
    		 while($stmt->fetch())
    		 {
    		 	$num_rows++;		
-      $result=$result."<a href='product.php?pid=".$pid."'  ><li  class='bold' style='float:left;text-align:justify; padding-left:20px;'>".$pname."</li></a><br><li class='divider'></li><br>";
+      $result=$result."<li  class='bold' style='float:left;text-align:justify; padding-left:20px;'><a  href='product.php?pid=".$pid."'  >".$pname."</a></li><br><li class='divider'></li><br>";
    		if ($num_rows==5) {
      echo $result;exit();   	 
       }

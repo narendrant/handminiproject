@@ -1,7 +1,9 @@
   <?php
   session_start();
   require_once 'db.php';
-
+if ($_SESSION['loggedin']==FALSE) {
+			header("Location: index.php");exit();
+}
   ?>
   <!DOCTYPE html>
   <html>
@@ -57,7 +59,7 @@
 		<div class="nav-wrapper">
       <a href="#" class="brand-logo center">Some Text</a>
       <ul id="nav-mobile" class="right hide-on-med-and-down">
-             <li><a class='btn nav-wrapper hide-on-med-and-down' style="background:transparent;border:1px solid white;" id="rent" href='#' style="line-height: 30px;">Rent Your Item Now</a></li>
+             <li><a class='btn nav-wrapper hide-on-med-and-down' style="background:transparent;border:1px solid white;" id="rent" href='rent_item.php' style="line-height: 30px;">Rent Your Item Now</a></li>
       <?php if (isset($_SESSION['loggedin']) && $_SESSION['loggedin']): ?>
         <li><img style="height:50px;width:50px;"src=<?php echo "images/profile_pics/".$_SESSION['uid'];?> class="circle propic" onerror="this.src='images/logo.png';"><li style="padding-left:10px;"><?php echo $_SESSION["name"];?></li></li><li><a href="#" data-activates="drop" class="dropdown-button  dropdown-button1 disableClick"><i class="material-icons ">arrow_drop_down</i></a></li> 
 					<ul id='drop' class='dropdown-content'>
@@ -402,7 +404,17 @@
   </nav>
 
 	</header>
+		<div class="row ">
+    <div class="col m6 offset-m4 ">
+      <ul class="tabs hide-on-small-only">
+        <li class="tab col s2"><a href="#my_products">My Products</a></li>
+        <li class="tab col s2"><a href="#recent_products">Recent Transaction</a></li>
+        <li class="tab col s2"><a href="#pending_products">Pending Transaction</a></li>
+      </ul>
+    </div>
+
 <?php  if ($_SESSION['loggedin']==FALSE) {
+			header("Location: index.php");exit();
   		echo "<div class='row'>
 		<div class='col m4 offset-m3'>
 		<span>Please Log in to view your products. </span>
@@ -427,7 +439,7 @@
 		while ($stmt->fetch()) {
 		$num_rows++;
 		if ($num_rows==1) {
-			  	echo "<div class='row'>
+			  	echo "<div id='my_products' style='padding-top:100px;'><div class='row'>
 		<div class='col m4 offset-m3'>
 		<h5>My Products</h5>
 		</div>
@@ -446,7 +458,7 @@
 				</div>
 				<div class='card-content'>
 					<div  style='text-overflow:ellipsis;overflow:hidden;white-space:nowrap;'><span class='card-title activator grey-text text-darken-4'  >".$pname."<i class='material-icons right' >info_outline</i></span></div>
-					<span><a href='product.php?pid=".$pid."'>Check Out Product</a></span>
+					<span><a href='editproduct.php?pid=".$pid."'>Edit Details</a></span>
 				</div>
 				<div class='card-reveal'>
 					<i class='material-icons right'>close</i><span class='card-title grey-text text-darken-4'>".$pname."</span>
@@ -457,7 +469,7 @@
 		 $flag++;
 		 if ($flag==4) {
 		 	$flag=0;
-		 	echo "</div></center>";
+		 	echo "</div>";
 		 }
 		}
 		if ($num_rows==0) {
@@ -471,8 +483,92 @@
 
 	  
 	  
-    echo"</div>
-    <div class='row'>
+    echo"</div></div></div>
+    <div id='recent_products' style='padding-top:100px;'><div class='row'>
+		<div class='col m4 s12 offset-m3'>
+		<h5>Recent Transactions</h5>
+		</div>
+	</div>
+	
+	<div class='row'>
+		<div class='col m8 s12 offset-m3'>
+			<table class='highlight striped'>
+			<thead>
+			  <tr>
+				  <th data-field='product name'>Product Name</th>
+				  <th data-field='transaction id'>Transaction ID</th>
+				  <th data-field='rentee'>Rentee</th>
+				  <th data-field='date'>Date</th>
+			  </tr>
+			</thead>
+
+			<tbody>
+			  <tr>
+				<td>pn1</td>
+				<td>tid1</td>
+				<td>r1</td>
+				<td>d1</td>
+			  </tr>
+			  <tr>
+				<td>pn2</td>
+				<td>tid2</td>
+				<td>r2</td>
+				<td>d2</td>
+			  </tr>
+			  <tr>
+				<td>pn3</td>
+				<td>tid3</td>
+				<td>r3</td>
+				<td>d3</td>
+			  </tr>
+			</tbody>
+		  </table>
+		</div>
+	</div></div>
+
+	
+	<div id='pending_products' style='padding-top:100px;'><div class='row' >
+		<div class='col m4 s12 offset-m3'>
+		<h5>Pending Transactions</h5>
+		</div>
+	</div>
+	
+	<div class='row'>
+		<div class='col m8 s12 offset-m3'>
+			<table class='highlight striped'>
+			<thead>
+			  <tr>
+				  <th data-field='product name'>Product Name</th>
+				  <th data-field='transaction id'>Transaction ID</th>
+				  <th data-field='rentee'>Rentee</th>
+				  <th data-field='date'>Date</th>
+			  </tr>
+			</thead>
+
+			<tbody>
+			  <tr>
+				<td>pn1</td>
+				<td>tid1</td>
+				<td>r1</td>
+				<td>d1</td>
+			  </tr>
+			  <tr>
+				<td>pn2</td>
+				<td>tid2</td>
+				<td>r2</td>
+				<td>d2</td>
+			  </tr>
+			  <tr>
+				<td>pn3</td>
+				<td>tid3</td>
+				<td>r3</td>
+				<td>d3</td>
+			  </tr>
+			</tbody>
+		  </table>
+		</div>
+	</div></div>";
+    echo"<div class='hide-on-large-only'><div class='row '>
 		<div class='col m4 s12 offset-m3'>
 		<h5>Recent Transactions</h5>
 		</div>
@@ -515,7 +611,7 @@
 	</div>
 
 	
-	<div class='row' style='margin-top: 10px;'>
+	<div class='row' >
 		<div class='col m4 s12 offset-m3'>
 		<h5>Pending Transactions</h5>
 		</div>
@@ -555,7 +651,7 @@
 			</tbody>
 		  </table>
 		</div>
-	</div>";
+	</div></div>";
 	}
 	?>
     </body>

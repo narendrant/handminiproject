@@ -1,6 +1,5 @@
 <?php 
-function signup_mail($To,$fname){
-$To = 'hari751995@gmail.com'; 
+function signup_mail($To,$fname){ 
 $Subject = 'Welcome to Online Product Rental Portal'; 
 $Message = "Dear ".$fname.","."<br>"."	 Welcome. You have signed up to handminiproject."; 
 $Headers = "From: handminiproject@gmail.com \r\n" . 

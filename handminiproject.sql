@@ -3,8 +3,8 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Jan 27, 2016 at 09:55 PM
--- Server version: 5.5.46-0ubuntu0.14.04.2
+-- Generation Time: Feb 15, 2016 at 08:25 PM
+-- Server version: 5.5.47-0ubuntu0.14.04.1
 -- PHP Version: 5.5.9-1ubuntu4.14
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
@@ -42,7 +42,7 @@ CREATE TABLE IF NOT EXISTS `History` (
 --
 
 CREATE TABLE IF NOT EXISTS `Product` (
-  `product_ID` bigint(250) unsigned zerofill NOT NULL AUTO_INCREMENT COMMENT 'P_id',
+  `product_ID` int(5) unsigned zerofill NOT NULL AUTO_INCREMENT COMMENT 'P_id',
   `pname` varchar(1000) NOT NULL COMMENT 'Product Name',
   `category` varchar(1000) NOT NULL DEFAULT 'Other' COMMENT 'Product Category',
   `u_ID` bigint(250) DEFAULT NULL COMMENT 'Renter ID',
@@ -55,7 +55,23 @@ CREATE TABLE IF NOT EXISTS `Product` (
   `no_of_views` bigint(20) NOT NULL COMMENT 'Number of Views',
   `rating` float NOT NULL COMMENT 'Product Rating',
   PRIMARY KEY (`product_ID`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=10011 ;
+
+--
+-- Dumping data for table `Product`
+--
+
+INSERT INTO `Product` (`product_ID`, `pname`, `category`, `u_ID`, `description`, `location`, `price_day`, `price_week`, `price_month`, `bond`, `no_of_views`, `rating`) VALUES
+(10001, 'Honda Unicorn', 'Bike', 50001, 'Black color, 2010 model', 'Kochi', 300, 250, 250, 1, 101, 4.5),
+(10002, 'Dining Table set', 'Furniture', 50002, 'Four seat dining table set made of teakwood.', 'Kottayam', 500, 500, 400, 0, 345, 3),
+(10003, 'Videocon A/C', 'Home Appliances', 50003, '1 ton a/c, new model and well maintained.', 'Thrissur', 350, 300, 260, 0, 207, 4.7),
+(10004, 'Sofa', 'Furniture', 50004, 'Leather 3 seater sofa, excellent condition.', 'Kochi', 400, 400, 350, 0, 780, 3.9),
+(10005, 'Washing machine', 'Home Appliances', 50005, 'LG semi automatic, 7.2kg capacity.', 'Alapuzha', 200, 200, 150, 1, 490, 3),
+(10006, 'LED Television', 'Power Tools', 50006, 'Samsung 40inch LED TV', 'Trivandrum', 3000, 2750, 2500, 1, 398, 4.6),
+(10007, 'Lawn Mower', 'Home Appliances', 50007, 'Honda lawn mower,weight 10kgs,six cutting heights.', 'Kollam', 150, 150, 100, 0, 398, 4.6),
+(10008, 'Camping Tent', 'Adventure', 50008, 'Hyu Four To Six People Foldable Camping and Outdoor Tent.Dimension: 220 x 250 x 150 cm.', 'Kochi', 300, 250, 200, 0, 506, 4.2),
+(10009, 'Royal Enfield Bullet 500', 'Bike', 50009, 'Classic 500,grey colour.', 'Kottayam', 1000, 750, 600, 1, 398, 3.8),
+(10010, 'Drilling machine', 'Power Tools', 50010, 'SKIL 6513 Impact Drill 13 mm, 550W, 3000 rpm ', 'Thrissur', 200, 150, 99, 1, 210, 4.1);
 
 -- --------------------------------------------------------
 
@@ -110,7 +126,7 @@ CREATE TABLE IF NOT EXISTS `User` (
   PRIMARY KEY (`user_ID`),
   UNIQUE KEY `user_ID` (`user_ID`),
   UNIQUE KEY `password` (`password`,`email`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=50001 ;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

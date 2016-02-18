@@ -23,7 +23,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 	if($stmt->fetch()){
 		echo "Email ID Already Exists !!!";
 	}else{
-		$image=upload_image();
+		$image=upload_prof_image();
 		if($image!="success"){
 			echo $image;
 			exit();

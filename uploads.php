@@ -1,5 +1,5 @@
 <?php
-function upload_image(){
+function upload_prof_image(){
 				$target_dir = "images/profile_pics/";
 			$target_file = $target_dir . basename($_FILES["profile_pic"]["name"]);
 			$uploadOk = 1;
@@ -46,4 +46,33 @@ function upload_image(){
     			}
 			}
 
+function upload_prod_images($pid){
+
+	$error='';
+    $extension=array("jpeg","jpg","png","gif");
+    $i=0;
+    foreach($_FILES["files"]["tmp_name"] as $key=>$tmp_name)
+            {
+            	$i++;
+                $file_name=$_FILES["files"]["name"][$key];
+                $file_tmp=$_FILES["files"]["tmp_name"][$key];
+                $ext=pathinfo($file_name,PATHINFO_EXTENSION);
+                if(in_array($ext,$extension))
+                {
+			if ($_FILES["files"]["tmp_name"][$key]["size"] > 1000000) {
+    			return "Image Too Large";
+			}
+                        move_uploaded_file($file_tmp=$_FILES["files"]["tmp_name"][$key],"images/products/".$i."/".$pid);
+                }
+                else
+                {
+                	return "Unsupported Format";
+                }
+            }
+            if($i==0)
+            	return "Upload Atleast One Image";
+            return "";
+
+
+}
 ?>

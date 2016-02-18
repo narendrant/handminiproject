@@ -3,6 +3,7 @@ $(document).ready(function(){
  $('#locmob').on('click',function(){
   ismob=true;
  });
+ $('select').material_select();
   var location='LOCATION';
 
   $('.location').on('click',function(){
@@ -86,7 +87,7 @@ $('#signupform').ajaxForm({
             }
           });
 $('#signupform1').ajaxForm({                 
-            data: $('#signupform').serialize(),
+            data: $('#signupform1').serialize(),
             success: function (data) {
               if(data=="signedup"){
                 console.log((data));

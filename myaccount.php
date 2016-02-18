@@ -36,7 +36,7 @@ if ($_SESSION['loggedin']==FALSE) {
 			  <ul>
 				<div class="card no-margin">
 					<div class="card-image" style="background:#FFF;height:200px;"> <!--F44336-->
-							<img src="images/logo.png" style="transform:scale(0.9,.9);">
+							<a href="index.php"><img src="images/logo.png" style="transform:scale(0.9,.9);"></a>
 						  <!--<span class="card-title">DalalBull</span>-->
 					</div>
 							   
@@ -44,24 +44,24 @@ if ($_SESSION['loggedin']==FALSE) {
 			  </ul>
 				  
 			  <ul class="no-padding">
-				  <li  class="bold"><a class="waves-effect waves-teal sidenava" href="#">Electronics & Appliances</a></li>
-				  <li  class="bold"><a class="waves-effect waves-teal sidenava" href="#">Furniture</a></li>
-				  <li  class="bold"><a class="waves-effect waves-teal sidenava" href="#">Bikes & Scooters</a></li>
-				  <li  class="bold"><a class="waves-effect waves-teal sidenava" href="#">Power Tools</a></li>
-				  <li  class="bold"><a class="waves-effect waves-teal sidenava" href="#">Musical Instruments</a></li>
-				  <li  class="bold"><a class="waves-effect waves-teal sidenava" href="#">Baby Accessories & Toys</a></li>
-				  <li  class="bold"><a class="waves-effect waves-teal sidenava" href="#">Others</a></li>
+				  <li  class="bold"><a class="waves-effect waves-teal sidenava" href="/handminiproject/categorypage.php?cid=Electronics And Home Appliances">Electronics & Appliances</a></li>
+				  <li  class="bold"><a class="waves-effect waves-teal sidenava" href="/handminiproject/categorypage.php?cid=Furniture">Furniture</a></li>
+				  <li  class="bold"><a class="waves-effect waves-teal sidenava" href="/handminiproject/categorypage.php?cid=Bikes And Scooters">Bikes & Scooters</a></li>
+				  <li  class="bold"><a class="waves-effect waves-teal sidenava" href="/handminiproject/categorypage.php?cid=Power Tools">Power Tools</a></li>
+				  <li  class="bold"><a class="waves-effect waves-teal sidenava" href="/handminiproject/categorypage.php?cid=Musical Instruments">Musical Instruments</a></li>
+				  <li  class="bold"><a class="waves-effect waves-teal sidenava" href="/handminiproject/categorypage.php?cid=Baby Accessories And Toys">Baby Accessories & Toys</a></li>
+				  <li  class="bold"><a class="waves-effect waves-teal sidenava" href="/handminiproject/categorypage.php?cid=Others">Others</a></li>
 			  </ul>
 		  </ul>
 	   <div class="">
 	   <nav>
 	    <a href="#" data-activates="slide-out " class="button-collapse"><i class="mdi-navigation-menu"></i></a>
-		<div class="nav-wrapper">
-      <a href="#" class="brand-logo center">Some Text</a>
+		<div class="nav-wrapper fixed">
+      <a href="#" class="brand-logo center">My Account</a>
       <ul id="nav-mobile" class="right hide-on-med-and-down">
-             <li><a class='btn nav-wrapper hide-on-med-and-down' style="background:transparent;border:1px solid white;" id="rent" href='rent_item.php' style="line-height: 30px;">Rent Your Item Now</a></li>
+             <li><a class='btn nav-wrapper hide-on-med-and-down' style="background:transparent;border:1px solid white;" id="rent" href='addproduct.php' style="line-height: 30px;">Rent Your Item Now</a></li>
       <?php if (isset($_SESSION['loggedin']) && $_SESSION['loggedin']): ?>
-        <li><img style="height:50px;width:50px;"src=<?php echo "images/profile_pics/".$_SESSION['uid'];?> class="circle propic" onerror="this.src='images/logo.png';"><li style="padding-left:10px;"><?php echo $_SESSION["name"];?></li></li><li><a href="#" data-activates="drop" class="dropdown-button  dropdown-button1 disableClick"><i class="material-icons ">arrow_drop_down</i></a></li> 
+        <?php if(getimagesize('http://localhost/handminiproject/images/profile_pics/'.$_SESSION['uid'])!==false): ?><li><img style="height:50px;width:50px;"src=<?php echo "images/profile_pics/".$_SESSION['uid'];?> class="circle propic" onerror="this.src='images/logo.png';"><?php else:?><li><img style="height:50px;width:50px;"src="images/logo.png" class="circle propic"><?php endif;?></li><li style="padding-left:10px;"><?php echo $_SESSION["name"];?></li></li><li><a href="#" data-activates="drop" class="dropdown-button  dropdown-button1 disableClick"><i class="material-icons ">arrow_drop_down</i></a></li> 
 					<ul id='drop' class='dropdown-content'>
 						<li><a href="#" id="logout" onclick="logout()" >Logout</a></li>
 					</ul>
@@ -654,6 +654,12 @@ if ($_SESSION['loggedin']==FALSE) {
 	</div></div>";
 	}
 	?>
+	  <div class="hide-on-large-only fixed-action-btn" style="bottom: 45px; right: 24px;">
+    <a href='addproduct.php' class="btn-floating btn-large red">
+      <i class="large material-icons">add</i>
+    </a>
+  </div>    
+
     </body>
   </html>
   <?php

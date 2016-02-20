@@ -61,7 +61,7 @@ if ($_SESSION['loggedin']==FALSE) {
       <ul id="nav-mobile" class="right hide-on-med-and-down">
              <li><a class='btn nav-wrapper hide-on-med-and-down' style="background:transparent;border:1px solid white;" id="rent" href='addproduct.php' style="line-height: 30px;">Rent Your Item Now</a></li>
       <?php if (isset($_SESSION['loggedin']) && $_SESSION['loggedin']): ?>
-        <?php if(getimagesize('http://localhost/handminiproject/images/profile_pics/'.$_SESSION['uid'])!==false): ?><li><img style="height:50px;width:50px;"src=<?php echo "images/profile_pics/".$_SESSION['uid'];?> class="circle propic" onerror="this.src='images/logo.png';"><?php else:?><li><img style="height:50px;width:50px;"src="images/logo.png" class="circle propic"><?php endif;?></li><li style="padding-left:10px;"><?php echo $_SESSION["name"];?></li></li><li><a href="#" data-activates="drop" class="dropdown-button  dropdown-button1 disableClick"><i class="material-icons ">arrow_drop_down</i></a></li> 
+        <?php if(getimagesize('http://localhost/handminiproject/images/profile_pics/'.$_SESSION['uid'])!==false): ?><li><img style="height:50px;width:50px;"src=<?php echo "images/profile_pics/".$_SESSION['uid'];?> class="circle propic" onerror="this.src='images/logo.png';"><?php else:?><li><img style="height:50px;width:50px;"src="images/sample-1.jpg" class="circle propic"><?php endif;?></li><li style="padding-left:10px;"><?php echo $_SESSION["name"];?></li></li><li><a href="#" data-activates="drop" class="dropdown-button  dropdown-button1 disableClick"><i class="material-icons ">arrow_drop_down</i></a></li> 
 					<ul id='drop' class='dropdown-content'>
 						<li><a href="#" id="logout" onclick="logout()" >Logout</a></li>
 					</ul>
@@ -97,7 +97,7 @@ if ($_SESSION['loggedin']==FALSE) {
 			<div class="modal-content">
 				<form id="signupform1" action="signup.php" method="post" enctype="multipart/form-data">
 						<div  class="col s12 offset-s3" style="padding-left:46px;">
-							<center><p id="serror1" class="red-text" ></p></center>
+							<strong><center><p id="serror1" class="red-text" ></p></center></strong>
 						</div>
 
 						<div class="row">
@@ -211,7 +211,7 @@ if ($_SESSION['loggedin']==FALSE) {
             <div class="modal-content">
                 <form id="loginform1"  action="login.php" method="post">
                 <div  style="padding-left:70px;">
-                    <center><p id="error1" class="red-text" ></p></center>
+                    <strong><center><p id="error1" class="red-text" ></p></center></strong>
                 </div>
                 <div class="row">
                     <div class="col s2 offset-s1">
@@ -245,7 +245,7 @@ if ($_SESSION['loggedin']==FALSE) {
 			<div class="modal-content">
 				<form id="loginform"  action="login.php" method="post">
 				<div  style="padding-left:130px;">
-					<center><p id="error" class="red-text" ></p></center>
+					<strong><center><p id="error" class="red-text" ></p></center></strong>
 				</div>
 				<div class="row">
 					<div class="col s2 offset-s1">
@@ -282,7 +282,7 @@ if ($_SESSION['loggedin']==FALSE) {
 			<div class="modal-content">
 				<form id="signupform" action="signup.php" method="post" enctype="multipart/form-data">
 						<div  style="padding-left:280px;">
-							<center><p id="serror" class="red-text" ></p></center>
+							<strong><center><p id="serror" class="red-text" ></p></center></strong>
 						</div>
 
 						<div class="row">
@@ -408,8 +408,8 @@ if ($_SESSION['loggedin']==FALSE) {
     <div class="col m6 offset-m4 ">
       <ul class="tabs hide-on-small-only">
         <li class="tab col s2"><a href="#my_products">My Products</a></li>
-        <li class="tab col s2"><a href="#recent_products">Recent Transaction</a></li>
-        <li class="tab col s2"><a href="#pending_products">Pending Transaction</a></li>
+        <li class="tab col s2"><a href="#recent_products">Active</a></li>
+        <li class="tab col s2"><a href="#pending_products">Completed</a></li>
       </ul>
     </div>
 
@@ -486,170 +486,250 @@ if ($_SESSION['loggedin']==FALSE) {
     echo"</div></div></div>
     <div id='recent_products' style='padding-top:100px;'><div class='row'>
 		<div class='col m4 s12 offset-m3'>
-		<h5>Recent Transactions</h5>
+		<h5>Active Transactions</h5>
 		</div>
 	</div>
 	
 	<div class='row'>
 		<div class='col m8 s12 offset-m3'>
-			<table class='highlight striped'>
-			<thead>
-			  <tr>
-				  <th data-field='product name'>Product Name</th>
-				  <th data-field='transaction id'>Transaction ID</th>
-				  <th data-field='rentee'>Rentee</th>
-				  <th data-field='date'>Date</th>
-			  </tr>
-			</thead>
+		<h5>Rented-Out</h5>
+<table class='highlight striped responsive-table'>
+            <thead>
+              <tr>
+                  <th data-field='product name'>Product Name</th>
+                  <th data-field='transaction id'>Transaction ID</th>
+                  <th data-field='renter'>Rentee</th>
+                  <th data-field='date'>Date</th>
+                  <th data-field='Status'>Status</th>
+                  <th data-field='approval'>Approval</th>
+                  <th data-field='req'>Request Return</th>
+              </tr>
+            </thead>
 
-			<tbody>
-			  <tr>
-				<td>pn1</td>
-				<td>tid1</td>
-				<td>r1</td>
-				<td>d1</td>
-			  </tr>
-			  <tr>
-				<td>pn2</td>
-				<td>tid2</td>
-				<td>r2</td>
-				<td>d2</td>
-			  </tr>
-			  <tr>
-				<td>pn3</td>
-				<td>tid3</td>
-				<td>r3</td>
-				<td>d3</td>
-			  </tr>
-			</tbody>
-		  </table>
-		</div>
+            <tbody>
+              <tr>
+                <td>pn1</td>
+                <td>tid1</td>
+                <td>r1</td>
+                <td>d1</td>
+                <td>st</td>
+                <td>
+                	<a id='approve' class='btn-floating btn-small waves-effect waves-light teal left'><i class='material-icons'>done</i></a>
+                    <a id='reject' class='btn-floating btn-small waves-effect waves-light  right' style='background:#EE6E73;'><i class='material-icons activator right'>close</i></a>
+				</td>
+                <td><a class='waves-effect waves-light btn white' style='border:2px solid teal;border-radius:25px;'><span style='color:teal;'>Request</span></a></td>
+              </tr>
+            </tbody>
+          </table>
+		<h5>Rented-In</h5>
+<table class='highlight striped responsive-table'>
+            <thead>
+              <tr>
+                  <th data-field='product name'>Product Name</th>
+                  <th data-field='transaction id'>Transaction ID</th>
+                  <th data-field='renter'>Renter</th>
+                  <th data-field='date'>Date</th>
+                  <th data-field='Status'>Status</th>
+                  <th data-field='approval'>Approval</th>
+                  <th data-field='can'>Cancel/Return</th>
+              </tr>
+            </thead>
+
+            <tbody>
+              <tr>
+                <td>pn1</td>
+                <td>tid1</td>
+                <td>r1</td>
+                <td>d1</td>
+                <td>st</td>
+                <td>
+                	<a id='approve' class='btn-floating btn-small waves-effect waves-light teal left'><i class='material-icons'>done</i></a>
+                    <a id='reject' class='btn-floating btn-small waves-effect waves-light  right' style='background:#EE6E73;'><i class='material-icons activator right'>close</i></a>
+				</td>
+                <td><a class='waves-effect waves-light btn white' style='border:2px solid teal;border-radius:25px;'><span style='color:teal;padding-left:5px;'>Return</span></a></td>
+              </tr>
+            </tbody>
+          </table>
+          		</div>
 	</div></div>
 
 	
 	<div id='pending_products' style='padding-top:100px;'><div class='row' >
 		<div class='col m4 s12 offset-m3'>
-		<h5>Pending Transactions</h5>
+		<h5>Completed Transactions</h5>
 		</div>
 	</div>
 	
 	<div class='row'>
 		<div class='col m8 s12 offset-m3'>
-			<table class='highlight striped'>
-			<thead>
-			  <tr>
-				  <th data-field='product name'>Product Name</th>
-				  <th data-field='transaction id'>Transaction ID</th>
-				  <th data-field='rentee'>Rentee</th>
-				  <th data-field='date'>Date</th>
-			  </tr>
-			</thead>
+		<h5>Rented-Out</h5>
+<table class='highlight striped responsive-table'>
+            <thead>
+              <tr>
+                  <th data-field='product name'>Product Name</th>
+                  <th data-field='transaction id'>Transaction ID</th>
+                  <th data-field='renter'>Renter</th>
+                  <th data-field='date'>Date</th>
+                  <th data-field='Review'>Complaint</th>
+              </tr>
+            </thead>
 
-			<tbody>
-			  <tr>
-				<td>pn1</td>
-				<td>tid1</td>
-				<td>r1</td>
-				<td>d1</td>
-			  </tr>
-			  <tr>
-				<td>pn2</td>
-				<td>tid2</td>
-				<td>r2</td>
-				<td>d2</td>
-			  </tr>
-			  <tr>
-				<td>pn3</td>
-				<td>tid3</td>
-				<td>r3</td>
-				<td>d3</td>
-			  </tr>
-			</tbody>
-		  </table>
+            <tbody>
+              <tr>
+                <td>pn1</td>
+                <td>tid1</td>
+                <td>r1</td>
+                <td>d1</td>
+                <td><a class='waves-effect waves-light btn white' style='border:2px solid #EE6E73;border-radius:25px;'><span style='color:#EE6E73;'>Complaint</span></a></td>
+              </tr>
+            </tbody>
+          </table>
+		<h5>Rented-In</h5>
+<table class='highlight striped responsive-table'>
+            <thead>
+              <tr>
+                  <th data-field='product name'>Product Name</th>
+                  <th data-field='transaction id'>Transaction ID</th>
+                  <th data-field='renter'>Renter</th>
+                  <th data-field='date'>Date</th>
+                  <th data-field='Review'>Review</th>
+              </tr>
+            </thead>
+
+            <tbody>
+              <tr>
+                <td>pn1</td>
+                <td>tid1</td>
+                <td>r1</td>
+                <td>d1</td>
+                <td><a class='waves-effect waves-light btn white' style='border:2px solid teal;border-radius:25px;'><span style='color:teal;'>Add Review</span></a></td>
+              </tr>
+            </tbody>
+          </table>
 		</div>
 	</div></div>";
     echo"<div class='hide-on-large-only'><div class='row '>
 		<div class='col m4 s12 offset-m3'>
-		<h5>Recent Transactions</h5>
+		<h5>Active Transactions</h5>
 		</div>
 	</div>
 	
 	<div class='row'>
 		<div class='col m8 s12 offset-m3'>
-			<table class='highlight striped'>
-			<thead>
-			  <tr>
-				  <th data-field='product name'>Product Name</th>
-				  <th data-field='transaction id'>Transaction ID</th>
-				  <th data-field='rentee'>Rentee</th>
-				  <th data-field='date'>Date</th>
-			  </tr>
-			</thead>
+		<h5>Rented-Out</h5>
+<table class='highlight striped responsive-table'>
+            <thead>
+              <tr>
+                  <th data-field='product name'>Product Name</th>
+                  <th data-field='transaction id'>Transaction ID</th>
+                  <th data-field='renter'>Rentee</th>
+                  <th data-field='date'>Date</th>
+                  <th data-field='Status'>Status</th>
+                  <th data-field='approval'>Approval</th>
+                  <th data-field='req'>Request Return</th>
+              </tr>
+            </thead>
 
-			<tbody>
-			  <tr>
-				<td>pn1</td>
-				<td>tid1</td>
-				<td>r1</td>
-				<td>d1</td>
-			  </tr>
-			  <tr>
-				<td>pn2</td>
-				<td>tid2</td>
-				<td>r2</td>
-				<td>d2</td>
-			  </tr>
-			  <tr>
-				<td>pn3</td>
-				<td>tid3</td>
-				<td>r3</td>
-				<td>d3</td>
-			  </tr>
-			</tbody>
-		  </table>
+            <tbody>
+              <tr>
+                <td>pn1</td>
+                <td>tid1</td>
+                <td>r1</td>
+                <td>d1</td>
+                <td>st</td>
+                <td>
+                	<a id='approve' class='btn-floating btn-small waves-effect waves-light teal left'><i class='material-icons'>done</i></a>
+                    <a id='reject' class='btn-floating btn-small waves-effect waves-light  right' style='background:#EE6E73;'><i class='material-icons activator right'>close</i></a>
+				</td>
+                <td><a class='waves-effect waves-light btn white' style='border:2px solid teal;border-radius:25px;'><span style='color:teal;'>Request</span></a></td>
+              </tr>
+            </tbody>
+          </table>
+		<h5>Rented-In</h5>
+<table class='highlight striped responsive-table'>
+            <thead>
+              <tr>
+                  <th data-field='product name'>Product Name</th>
+                  <th data-field='transaction id'>Transaction ID</th>
+                  <th data-field='renter'>Renter</th>
+                  <th data-field='date'>Date</th>
+                  <th data-field='Status'>Status</th>
+                  <th data-field='approval'>Approval</th>
+                  <th data-field='can'>Cancel/Return</th>
+              </tr>
+            </thead>
+
+            <tbody>
+              <tr>
+                <td>pn1</td>
+                <td>tid1</td>
+                <td>r1</td>
+                <td>d1</td>
+                <td>st</td>
+                <td>
+                	<a id='approve' class='btn-floating btn-small waves-effect waves-light teal left'><i class='material-icons'>done</i></a>
+                    <a id='reject' class='btn-floating btn-small waves-effect waves-light  right' style='background:#EE6E73;'><i class='material-icons activator right'>close</i></a>
+				</td>
+                <td><a class='waves-effect waves-light btn white' style='border:2px solid teal;border-radius:25px;'><span style='color:teal;'>Return</span></a></td>
+              </tr>
+            </tbody>
+          </table>
 		</div>
 	</div>
 
 	
 	<div class='row' >
 		<div class='col m4 s12 offset-m3'>
-		<h5>Pending Transactions</h5>
+		<h5>Completed Transactions</h5>
 		</div>
 	</div>
 	
 	<div class='row'>
 		<div class='col m8 s12 offset-m3'>
-			<table class='highlight striped'>
-			<thead>
-			  <tr>
-				  <th data-field='product name'>Product Name</th>
-				  <th data-field='transaction id'>Transaction ID</th>
-				  <th data-field='rentee'>Rentee</th>
-				  <th data-field='date'>Date</th>
-			  </tr>
-			</thead>
+		<h5>Rented-Out</h5>
+<table class='highlight striped responsive-table '>
+            <thead>
+              <tr>
+                  <th data-field='product name'>Product Name</th>
+                  <th data-field='transaction id'>Transaction ID</th>
+                  <th data-field='renter'>Renter</th>
+                  <th data-field='date'>Date</th>
+                  <th data-field='Review'>Complaint</th>
+              </tr>
+            </thead>
 
-			<tbody>
-			  <tr>
-				<td>pn1</td>
-				<td>tid1</td>
-				<td>r1</td>
-				<td>d1</td>
-			  </tr>
-			  <tr>
-				<td>pn2</td>
-				<td>tid2</td>
-				<td>r2</td>
-				<td>d2</td>
-			  </tr>
-			  <tr>
-				<td>pn3</td>
-				<td>tid3</td>
-				<td>r3</td>
-				<td>d3</td>
-			  </tr>
-			</tbody>
-		  </table>
+            <tbody>
+              <tr>
+                <td>pn1</td>
+                <td>tid1</td>
+                <td>r1</td>
+                <td>d1</td>
+                <td><a class='waves-effect waves-light btn white' style='border:2px solid #EE6E73;border-radius:25px;'><span style='color:#EE6E73;'>Complaint</span></a></td>
+              </tr>
+            </tbody>
+          </table>
+		<h5>Rented-In</h5>
+<table class='highlight striped responsive-table'>
+            <thead>
+              <tr>
+                  <th data-field='product name'>Product Name</th>
+                  <th data-field='transaction id'>Transaction ID</th>
+                  <th data-field='renter'>Renter</th>
+                  <th data-field='date'>Date</th>
+                  <th data-field='Review'>Review</th>
+              </tr>
+            </thead>
+
+            <tbody>
+              <tr>
+                <td>pn1</td>
+                <td>tid1</td>
+                <td>r1</td>
+                <td>d1</td>
+                <td><a class='waves-effect waves-light btn white' style='border:2px solid teal;border-radius:25px;'><span style='color:teal;'>Add Review</span></a></td>
+              </tr>
+            </tbody>
+          </table>
 		</div>
 	</div></div>";
 	}

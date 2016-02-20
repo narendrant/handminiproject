@@ -9,17 +9,18 @@
 	$price_week='';
 	$price_month='';
 	$price_day='';
+	$actual_price='';
 	$bond=0;
 	$availability=FALSE;
 	$pid=$_GET['pid'];
 	$num_rows=0;
     if(isset($_GET['pid'])){
-    	$query= "SELECT price_week,price_month,price_day,pname,bond,description,availability FROM Product WHERE product_ID=?";
+    	$query= "SELECT price_week,price_month,price_day,actual_price,pname,bond,description,availability FROM Product WHERE product_ID=?";
 		$stmt=$conn->prepare($query);		
 	    $stmt->bind_param('s',$pid);	
 		$stmt->execute();
 		$description='';
-		$stmt->bind_result($price_week,$price_month,$price_day,$pname,$bond,$description,$availability);
+		$stmt->bind_result($price_week,$price_month,$price_day,$actual_price,$pname,$bond,$description,$availability);
 		if($stmt->fetch()) {
 			$num_rows++;			
 	}
@@ -83,9 +84,9 @@
 		<div class="nav-wrapper fixed">
       <a href="#" class="brand-logo center"><?php echo $pname;?></a>
       <ul id="nav-mobile" class="right hide-on-med-and-down">
-             <li><a class='btn nav-wrapper hide-on-med-and-down' style="background:transparent;border:1px solid white;" id="rent" href='rent_item.php' style="line-height: 30px;">Rent Your Item Now</a></li>
+             <li><a class='btn nav-wrapper hide-on-med-and-down' style="background:transparent;border:1px solid white;" id="rent" href='addproduct.php' style="line-height: 30px;">Rent Your Item Now</a></li>
       <?php if (isset($_SESSION['loggedin']) && $_SESSION['loggedin']): ?>
-        <?php if(getimagesize('http://localhost/handminiproject/images/profile_pics/'.$_SESSION['uid'])!==false): ?><li><img style="height:50px;width:50px;"src=<?php echo "images/profile_pics/".$_SESSION['uid'];?> class="circle propic" onerror="this.src='images/logo.png';"><?php else:?><li><img style="height:50px;width:50px;"src="images/logo.png" class="circle propic"><?php endif;?></li><li style="padding-left:10px;"><?php echo $_SESSION["name"];?></li></li><li><a href="#" data-activates="drop" class="dropdown-button  dropdown-button1 disableClick"><i class="material-icons ">arrow_drop_down</i></a></li> 
+        <?php if(getimagesize('http://localhost/handminiproject/images/profile_pics/'.$_SESSION['uid'])!==false): ?><li><img style="height:50px;width:50px;"src=<?php echo "images/profile_pics/".$_SESSION['uid'];?> class="circle propic" onerror="this.src='images/logo.png';"><?php else:?><li><img style="height:50px;width:50px;"src="images/sample-1.jpg" class="circle propic"><?php endif;?></li><li style="padding-left:10px;"><?php echo $_SESSION["name"];?></li></li><li><a href="#" data-activates="drop" class="dropdown-button  dropdown-button1 disableClick"><i class="material-icons ">arrow_drop_down</i></a></li> 
 					<ul id='drop' class='dropdown-content'>
 						<li><a href="myaccount.php">My Account</a></li>
 						<li class="divider"></li>
@@ -123,7 +124,7 @@
 			<div class="modal-content">
 				<form id="signupform1" action="signup.php" method="post" enctype="multipart/form-data">
 						<div  class="col s12 offset-s3" style="padding-left:46px;">
-							<center><p id="serror1" class="red-text" ></p></center>
+							<strong><center><p id="serror1" class="red-text" ></p></center></strong>
 						</div>
 
 						<div class="row">
@@ -237,7 +238,7 @@
             <div class="modal-content">
                 <form id="loginform1"  action="login.php" method="post">
                 <div  style="padding-left:70px;">
-                    <center><p id="error1" class="red-text" ></p></center>
+                    <strong><center><p id="error1" class="red-text" ></p></center></strong>
                 </div>
                 <div class="row">
                     <div class="col s2 offset-s1">
@@ -271,7 +272,7 @@
 			<div class="modal-content">
 				<form id="loginform"  action="login.php" method="post">
 				<div  style="padding-left:130px;">
-					<center><p id="error" class="red-text" ></p></center>
+					<strong><center><p id="error" class="red-text" ></p></center></strong>
 				</div>
 				<div class="row">
 					<div class="col s2 offset-s1">
@@ -308,7 +309,7 @@
 			<div class="modal-content">
 				<form id="signupform" action="signup.php" method="post" enctype="multipart/form-data">
 						<div  style="padding-left:280px;">
-							<center><p id="serror" class="red-text" ></p></center>
+							<storng><center><p id="serror" class="red-text" ></p></center></storng>
 						</div>
 
 						<div class="row">
@@ -453,9 +454,9 @@
 				</div>
 				</div>
 				<div class="col s12 m4" style="padding: 20px;">
-				<p style="line-height:450%">Daily: &#8377;<?php echo $price_day;?><br/><p>
-				<p style="line-height:450%">Weekly: &#8377;<?php echo $price_week;?> <br/><p>
-				<p style="line-height:450%">Monthly: &#8377;<?php echo $price_month;?><br/><p>
+				<p style="line-height:450%">Daily: &#8377;<span id="pday"><?php echo $price_day;?></span><br/><p>
+				<p style="line-height:450%">Weekly: &#8377;<span id="pweek"><?php echo $price_week;?> </span><br/><p>
+				<p style="line-height:450%">Monthly: &#8377;<span id="pmonth"><?php echo $price_month;?></span><br/><p>
 				<p style="line-height:450%">Bond: <?php if($bond==1){echo"YES";}else{echo "NO";}?><br/><p>				
 					<div class="col s12 offset-m1 offset-s3">
 						<?php if(!$availability): ?>
@@ -474,10 +475,10 @@
                         <h2><?php echo $pname; ?></h2>
                         <div class="row">
                          <div class="col s6">
-                         From<input type="date" class="datepicker validate" required>
+                         From<input id="from" type="date" class="datepicker" >
                          </div>
                          <div class="col s6">
-                         To<input type="date" class="datepicker validate" required>
+                         To<input id="to" type="date" class="datepicker">
                          </div>
                          </div>
                          <div class="row" style="padding-top: 20px;">
@@ -485,9 +486,14 @@
                          </div>
                          </div>
                         </form>
-                         <div  id="page1" class="row " style="padding 10px">
+                         <div  id="page1" class="row " style="padding 0px">
                          <center>
                             <h4>Calculated Rent</h4>
+                <strong><center id="cerror" style="color: red"></center></strong>            
+				<div class="col s12 m4" style="padding: 20px;">
+				<p style="font-size:18px; ">Rent: &#8377;<span id='crent'></span><br/></p>
+				<p style="font-size:18px; ">Deposit: &#8377;<?php echo (0.05*$actual_price); ?><br/></p>
+                        </div>
                         </center>
                          </div>
                          

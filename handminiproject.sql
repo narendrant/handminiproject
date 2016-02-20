@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Feb 18, 2016 at 11:27 PM
+-- Generation Time: Feb 20, 2016 at 09:24 PM
 -- Server version: 5.5.47-0ubuntu0.14.04.1
 -- PHP Version: 5.5.9-1ubuntu4.14
 
@@ -53,8 +53,8 @@ CREATE TABLE IF NOT EXISTS `Product` (
   `price_day` decimal(10,0) NOT NULL COMMENT 'Price/Day',
   `price_week` decimal(10,0) NOT NULL COMMENT 'Price/Week',
   `price_month` decimal(10,0) NOT NULL COMMENT 'Price/Month',
+  `actual_price` decimal(10,0) NOT NULL COMMENT 'product price',
   `bond` tinyint(1) DEFAULT NULL COMMENT 'Bond Required or Not',
-  `no_of_views` bigint(20) NOT NULL COMMENT 'Number of Views',
   `rating` float NOT NULL COMMENT 'Product Rating',
   PRIMARY KEY (`product_ID`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=10017 ;
@@ -63,22 +63,22 @@ CREATE TABLE IF NOT EXISTS `Product` (
 -- Dumping data for table `Product`
 --
 
-INSERT INTO `Product` (`product_ID`, `pname`, `category`, `u_ID`, `description`, `alternate_address`, `availability`, `location`, `price_day`, `price_week`, `price_month`, `bond`, `no_of_views`, `rating`) VALUES
-(10001, 'Honda Unicorn', 'Bike', 50001, 'Black color, 2010 model', '', 1, 'Kochi', 300, 250, 250, 1, 101, 4.5),
-(10002, 'Dining Table set', 'Furniture', 50002, 'Four seat dining table set made of teakwood.', '', 1, 'Chennai', 500, 500, 400, 0, 345, 3),
-(10003, 'Videocon A/C', 'Electronics And Home Appliances', 50003, '1 ton a/c, new model and well maintained.', '', 0, 'Chennai', 350, 300, 260, 0, 207, 4.7),
-(10004, 'Sofa', 'Furniture', 50004, 'Leather 3 seater sofa, excellent condition.', '', 1, 'Kochi', 400, 400, 350, 0, 780, 3.9),
-(10005, 'Washing machine', 'Home Appliances', 50005, 'LG semi automatic, 7.2kg capacity.', '', 1, 'Other', 200, 200, 150, 1, 490, 3),
-(10006, 'LED Television', 'Power Tools', 50006, 'Samsung 40inch LED TV', '', 1, 'Kochi', 3000, 2750, 2500, 1, 398, 4.6),
-(10007, 'Lawn Mower', 'Home Appliances', 50007, 'Honda lawn mower,weight 10kgs,six cutting heights.', '', 1, 'Bangalore', 150, 150, 100, 0, 398, 4.6),
-(10008, 'Camping Tent', 'Adventure', 50008, 'Hyu Four To Six People Foldable Camping and Outdoor Tent.Dimension: 220 x 250 x 150 cm.', '', 1, 'Kochi', 300, 250, 200, 0, 506, 4.2),
-(10009, 'Royal Enfield Bullet 500', 'Bike', 50009, 'Classic 500,grey colour.', '', 1, 'Chennai', 1000, 750, 600, 1, 398, 3.8),
-(10010, 'Drilling machine', 'Power Tools', 50010, 'SKIL 6513 Impact Drill 13 mm, 550W, 3000 rpm ', '', 1, 'Kochi', 200, 150, 99, 1, 210, 4.1),
-(10011, 'test', 'Others', 50001, 'test', '', 1, 'Kochi', 1, 2, 2, NULL, 0, 0),
-(10012, 'test', 'Baby Accessories & Toys', 50001, 'test', '', 1, 'Kochi', 1, 1, -1, NULL, 0, 0),
-(10013, 'test', 'Electronics & Appliances', 50001, 'testagain', '', 1, 'Kochi', 1, 1, 1, NULL, 0, 0),
+INSERT INTO `Product` (`product_ID`, `pname`, `category`, `u_ID`, `description`, `alternate_address`, `availability`, `location`, `price_day`, `price_week`, `price_month`, `actual_price`, `bond`, `rating`) VALUES
+(10001, 'Honda Unicorn', 'Bike', 50001, 'Black color, 2010 model', '', 1, 'Kochi', 300, 250, 250, 0, 1, 4.5),
+(10002, 'Dining Table set', 'Furniture', 50002, 'Four seat dining table set made of teakwood.', '', 1, 'Chennai', 500, 500, 400, 0, 0, 3),
+(10003, 'Videocon A/C', 'Electronics And Home Appliances', 50003, '1 ton a/c, new model and well maintained.', '', 0, 'Chennai', 350, 300, 260, 0, 0, 4.7),
+(10004, 'Sofa', 'Furniture', 50004, 'Leather 3 seater sofa, excellent condition.', '', 1, 'Kochi', 400, 400, 350, 0, 0, 3.9),
+(10005, 'Washing machine', 'Home Appliances', 50005, 'LG semi automatic, 7.2kg capacity.', '', 1, 'Other', 200, 200, 150, 0, 1, 3),
+(10006, 'LED Television', 'Power Tools', 50006, 'Samsung 40inch LED TV', '', 1, 'Kochi', 3000, 2750, 2500, 0, 1, 4.6),
+(10007, 'Lawn Mower', 'Home Appliances', 50007, 'Honda lawn mower,weight 10kgs,six cutting heights.', '', 1, 'Bangalore', 150, 150, 100, 0, 0, 4.6),
+(10008, 'Camping Tent', 'Adventure', 50008, 'Hyu Four To Six People Foldable Camping and Outdoor Tent.Dimension: 220 x 250 x 150 cm.', '', 1, 'Kochi', 300, 250, 200, 0, 0, 4.2),
+(10009, 'Royal Enfield Bullet 500', 'Bike', 50009, 'Classic 500,grey colour.', '', 1, 'Chennai', 1000, 750, 600, 0, 1, 3.8),
+(10010, 'Drilling machine', 'Power Tools', 50010, 'SKIL 6513 Impact Drill 13 mm, 550W, 3000 rpm ', '', 1, 'Kochi', 200, 150, 99, 0, 1, 4.1),
+(10011, 'test', 'Others', 50001, 'test', '', 1, 'Kochi', 1, 2, 2, 0, NULL, 0),
+(10012, 'test', 'Baby Accessories & Toys', 50001, 'test', '', 1, 'Kochi', 1, 1, -1, 0, NULL, 0),
+(10013, 'test', 'Electronics & Appliances', 50001, 'testagain', '', 1, 'Kochi', 1, 1, 1, 0, NULL, 0),
 (10014, 'test1', 'Baby Accessories & Toys', 50001, '1', '', 1, 'Kochi', 1, 11, 111, 0, 0, 0),
-(10015, '111s', 'Musical Instruments', 50001, 'q', '', 1, 'Kochi', 1, 11, 111, 1, 0, 0),
+(10015, '111s', 'Musical Instruments', 50001, 'q', '', 1, 'Kochi', 1, 11, 111, 0, 1, 0),
 (10016, 'test', 'Baby Accessories & Toys', 50001, 'x', '', 1, 'Kochi', 1, 11, 111, 0, 0, 0);
 
 -- --------------------------------------------------------
@@ -108,9 +108,7 @@ CREATE TABLE IF NOT EXISTS `Transaction` (
   `transaction_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT 'Transaction time',
   `type` varchar(10) NOT NULL COMMENT 'Type of Transaction',
   `period` int(11) NOT NULL COMMENT 'Period of rental',
-  `alternate_address` varchar(3000) NOT NULL COMMENT 'Alternate address',
   `deposit` decimal(10,0) NOT NULL COMMENT 'Amount taken as deposit',
-  `approval` tinyint(1) NOT NULL COMMENT 'Approval by renter/rentee',
   PRIMARY KEY (`transaction_ID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
@@ -134,7 +132,7 @@ CREATE TABLE IF NOT EXISTS `User` (
   PRIMARY KEY (`user_ID`),
   UNIQUE KEY `user_ID` (`user_ID`),
   UNIQUE KEY `password` (`password`,`email`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=50013 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=50014 ;
 
 --
 -- Dumping data for table `User`
@@ -152,7 +150,8 @@ INSERT INTO `User` (`user_ID`, `password`, `fname`, `lname`, `address`, `city`, 
 (50009, '$2y$10$QIRlHCmD3R7hqjeDGhFZiu5VKFYEV6l6d9dgh78p9W03crZqngZh.', 'Harikishen', 'H', 'Harismruthi vijay gardens edayakunnam south chittor po kochi-682027', 'Kochi', '682027', 'Kerala', 'hari........751995@gmail.com', '+918943754999'),
 (50010, '$2y$10$pByCdSi/uX.R6P.XhudOKeB.TMweEX9DeprVyh/czD6Z2azBacq06', 'Harikishen', 'H', 'Harismruthi vijay gardens edayakunnam south chittor po kochi-682027', 'Kochi', '682027', 'Kerala', 'hari75199.5@gmail.com', '+918943754999'),
 (50011, '$2y$10$Ve.xLmIsMBzVVPkBWl9bp.myZtBnvTr5PeSYa3Tla8vEj4stjBNRm', 'Harikishen', 'H', 'Harismruthi vijay gardens edayakunnam south chittor po kochi-682027', 'Kochi', '682027', 'Kerala', 'hari@test', '+918943754999'),
-(50012, '$2y$10$ueVfDikqIRzn/fN5BaDFIeaMc2FD2Or.3ykHMFQ.POcd1MQpQETfe', 'Harikishen', 'H', 'Harismruthi vijay gardens edayakunnam south chittor po kochi-682027', 'Kochi', '682027', 'Kerala', 'hari7..5.1.995@gmail.com', '+918943754999');
+(50012, '$2y$10$ueVfDikqIRzn/fN5BaDFIeaMc2FD2Or.3ykHMFQ.POcd1MQpQETfe', 'Harikishen', 'H', 'Harismruthi vijay gardens edayakunnam south chittor po kochi-682027', 'Kochi', '682027', 'Kerala', 'hari7..5.1.995@gmail.com', '+918943754999'),
+(50013, '$2y$10$8U3NARw32GSkZ7j7gIAW3u93QO2gjfdZn9DlldRHC0d7UPOPvkFri', 'Harikishen', 'H', 'Harismruthi vijay gardens edayakunnam south chittor po kochi-682027', 'Kochi', '682027', 'Kerala', 'test@bbb.com', '+918943754999');
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

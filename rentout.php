@@ -10,6 +10,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 	$rpd=$_POST['drent'];
 	$rpw=$_POST['wrent'];
 	$rpm=$_POST['mrent'];
+	$actual=$_POST['price'];
 	$bond=$_POST['bond'];
 	if ($bond=='on') {
 		$bond=TRUE;
@@ -28,9 +29,13 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 	if ($rpm<0) {
 		$renterror=$renterror.'<br>Invalid Monthly Rent';
 	}
-	$sql = "INSERT INTO Product(u_ID,pname,category,description,price_day,price_week,price_month,bond,location)VALUES(?,?,?,?,?,?,?,?,?);";
+		if ($actual<0) {
+		$renterror=$renterror.'<br>Invalid Monthly Rent';
+	}
+
+	$sql = "INSERT INTO Product(u_ID,pname,category,description,price_day,price_week,price_month,actual_price,bond,location)VALUES(?,?,?,?,?,?,?,?,?,?);";
 	$stmt=$conn->prepare($sql);
-	$stmt->bind_param('sssssssss',$uid,$pname,$category,$description,$rpd,$rpw,$rpm,$bond,$location);
+	$stmt->bind_param('sssssssss',$uid,$pname,$category,$description,$rpd,$rpw,$rpm,$actual,$bond,$location);
 	if(!$stmt->execute()){
 			echo $stmt->error;
 		}

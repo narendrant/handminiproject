@@ -61,7 +61,7 @@
       <a href="#" class="brand-logo center">Rent Out Item</a>
       <ul id="nav-mobile" class="right hide-on-med-and-down">
       <?php if (isset($_SESSION['loggedin']) && $_SESSION['loggedin']): ?>
-        <?php if(getimagesize('http://localhost/handminiproject/images/profile_pics/'.$_SESSION['uid'])!==false): ?><li><img style="height:50px;width:50px;"src=<?php echo "images/profile_pics/".$_SESSION['uid'];?> class="circle propic" onerror="this.src='images/logo.png';"><?php else:?><li><img style="height:50px;width:50px;"src="images/logo.png" class="circle propic"><?php endif;?></li><li style="padding-left:10px;"><?php echo $_SESSION["name"];?></li></li><li><a href="#" data-activates="drop" class="dropdown-button  dropdown-button1 disableClick"><i class="material-icons ">arrow_drop_down</i></a></li> 
+        <?php if(getimagesize('http://localhost/handminiproject/images/profile_pics/'.$_SESSION['uid'])!==false): ?><li><img style="height:50px;width:50px;"src=<?php echo "images/profile_pics/".$_SESSION['uid'];?> class="circle propic" onerror="this.src='images/logo.png';"><?php else:?><li><img style="height:50px;width:50px;"src="images/sample-1.jpg" class="circle propic"><?php endif;?></li><li style="padding-left:10px;"><?php echo $_SESSION["name"];?></li></li><li><a href="#" data-activates="drop" class="dropdown-button  dropdown-button1 disableClick"><i class="material-icons ">arrow_drop_down</i></a></li> 
 					<ul id='drop' class='dropdown-content'>
 						<li><a href="myaccount.php">My Account</a></li>
 						<li class="divider"></li>
@@ -99,7 +99,7 @@
 			<div class="modal-content">
 				<form id="signupform1" action="signup.php" method="post" enctype="multipart/form-data">
 						<div  class="col s12 offset-s3" style="padding-left:46px;">
-							<center><p id="serror1" class="red-text" ></p></center>
+							<strong><center><p id="serror1" class="red-text" ></p></center></strong>
 						</div>
 
 						<div class="row">
@@ -213,7 +213,7 @@
             <div class="modal-content">
                 <form id="loginform1"  action="login.php" method="post">
                 <div  style="padding-left:70px;">
-                    <center><p id="error1" class="red-text" ></p></center>
+                    <strong><center><p id="error1" class="red-text" ></p></center></strong>
                 </div>
                 <div class="row">
                     <div class="col s2 offset-s1">
@@ -247,7 +247,7 @@
 			<div class="modal-content">
 				<form id="loginform"  action="login.php" method="post">
 				<div  style="padding-left:130px;">
-					<center><p id="error" class="red-text" ></p></center>
+					<strong><center><p id="error" class="red-text" ></p></center></strong>
 				</div>
 				<div class="row">
 					<div class="col s2 offset-s1">
@@ -284,7 +284,7 @@
 			<div class="modal-content">
 				<form id="signupform" action="signup.php" method="post" enctype="multipart/form-data">
 						<div  style="padding-left:280px;">
-							<center><p id="serror" class="red-text" ></p></center>
+							<strong><center><p id="serror" class="red-text" ></p></center></strong>
 						</div>
 
 						<div class="row">
@@ -411,7 +411,7 @@
 				<form id="prodform" action='rentout.php' method="post" enctype="multipart/form-data">
 				<div class="row">
 				<?php if(isset($_SESSION['renterror'])):?>
-							<center><p id="serror" class="red-text" ><?php echo $_SESSION['renterror']; ?></p></center>
+							<strong><center><p id="serror" class="red-text" ><?php echo $_SESSION['renterror']; ?></p></center></strong>
 				<?php endif;?>
 				</div>
 				<div class="row">
@@ -500,6 +500,12 @@
 					</div>
 					<div class="col s3 m2">
 						<input placeholder="Monthly Rent" name="mrent" id="mrent" type="number" class="validate" min="0" size="4">
+					</div>
+					<div class="col s1">
+						<i class="material-icons">credit_card</i>
+					</div>
+					<div class="col s3 m2">
+						<input placeholder="Product Price" name="price" id="price" type="number" class="validate" min="0" size="4">
 					</div>
 				</div>
 				

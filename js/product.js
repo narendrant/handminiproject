@@ -9,7 +9,8 @@ $(document).ready(function(){
 	$('.modal-trigger').leanModal();
   $('.datepicker').pickadate({
     selectMonths: true, // Creates a dropdown to control month
-    selectYears: 15 // Creates a dropdown of 15 years to control year
+    selectYears: 15 ,
+    format:'mm-dd-yyyy'  // Creates a dropdown of 15 years to control year
   });
 
     $('.button-collapse').sideNav();
@@ -97,6 +98,7 @@ $('#signupform1').ajaxForm({
             }
           });
 $('#prev').on('click',function(){
+  $('#cerror').html("");
   current--;
   console.log(current);
   $('#page'+(current-1)).hide();
@@ -108,6 +110,7 @@ $('#prev').on('click',function(){
 });
 
 $('#next').on('click',function(){
+  $('#cerror').html("");
   current++;  
   console.log(current);
   $('#page'+(current-1)).hide();
@@ -116,7 +119,37 @@ $('#next').on('click',function(){
  if (current==0) {$('#prev').hide();$('#next').fadeIn(100);}else{
   if (current==3) {$('#next').hide();$('#prev').fadeIn(100);}else{$('#next').fadeIn(100);$('#prev').fadeIn(100);}
  }
+ if (current==1 && $('#from').val()!='' && $('#to').val()!='') {
 
+var datefrom = new Date($('#from').val());
+var dateto = new Date($('#to').val());
+if(dateto.getTime()>datefrom.getTime()){
+var timeDiff = dateto.getTime() - datefrom.getTime();
+var diffDays = Math.ceil(timeDiff / (1000 * 3600 * 24)); 
+if (diffDays<7) {
+  var perday=$('#pday').html();
+  $('#crent').html(perday*diffDays);
+}else{
+    if (diffDays<31) {
+      var weeks=parseInt(diffDays/7);
+      var days=diffDays - (weeks*7);
+      var perday=$('#pday').html();
+      var perweek=$('#pweek').html();
+      $('#crent').html(weeks*perweek+days*perday);
+    }else{
+      var months=parseInt(diffDays/31);
+      var weeks=parseInt((diffDays - months*31)/7);
+      var days=(diffDays - months*31 - weeks*7);
+      var perday=$('#pday').html();
+      var perweek=$('#pweek').html();
+      var permonth=$('#pmonth').html();
+      $('#crent').html(months*permonth + weeks*perweek+days*perday);
+
+    }
+
+}
+}else{$('#cerror').html("Invalid Dates");}
+}
 });
 
 });

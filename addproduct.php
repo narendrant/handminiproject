@@ -2,6 +2,8 @@
   session_start();
   require_once 'db.php';
   if (!(isset($_SESSION['loggedin']) || $_SESSION['loggedin']==TRUE)) {
+  	      	 $_SESSION['rerror']='NOT LOGGED IN'; 
+  	      	 $_SESSION['add']=1; 
 	header("Location: index.php");exit();
   }
 
@@ -37,7 +39,7 @@
 			  <ul>
 				<div class="card no-margin">
 					<div class="card-image" style="background:#FFF;height:200px;"> <!--F44336-->
-							<a href="index.php"><img src="images/logo.png" style="transform:scale(0.9,.9);"></a>
+							<a href="index.php"><img src="images/sample-1.png" style="transform:scale(0.9,.9);"></a>
 						  <!--<span class="card-title">DalalBull</span>-->
 					</div>
 							   
@@ -61,7 +63,8 @@
       <a href="#" class="brand-logo center">Rent Out Item</a>
       <ul id="nav-mobile" class="right hide-on-med-and-down">
       <?php if (isset($_SESSION['loggedin']) && $_SESSION['loggedin']): ?>
-        <?php if(getimagesize('http://localhost/handminiproject/images/profile_pics/'.$_SESSION['uid'])!==false): ?><li><img style="height:50px;width:50px;"src=<?php echo "images/profile_pics/".$_SESSION['uid'];?> class="circle propic" onerror="this.src='images/logo.png';"><?php else:?><li><img style="height:50px;width:50px;"src="images/sample-1.jpg" class="circle propic"><?php endif;?></li><li style="padding-left:10px;"><?php echo $_SESSION["name"];?></li></li><li><a href="#" data-activates="drop" class="dropdown-button  dropdown-button1 disableClick"><i class="material-icons ">arrow_drop_down</i></a></li> 
+        <?php $_SESSION['rerror']='';
+ if(getimagesize('http://localhost/handminiproject/images/profile_pics/'.$_SESSION['uid'])!==false): ?><li><img style="height:50px;width:50px;"src=<?php echo "images/profile_pics/".$_SESSION['uid'];?> class="circle propic" onerror="this.src='images/logo.png';"><?php else:?><li><img style="height:50px;width:50px;"src="images/sample-1.jpg" class="circle propic"><?php  endif;?></li><li style="padding-left:10px;"><?php echo $_SESSION["name"];?></li></li><li><a href="#" data-activates="drop" class="dropdown-button  dropdown-button1 disableClick"><i class="material-icons ">arrow_drop_down</i></a></li> 
 					<ul id='drop' class='dropdown-content'>
 						<li><a href="myaccount.php">My Account</a></li>
 						<li class="divider"></li>
@@ -69,6 +72,9 @@
 					</ul>
 		
       <?php else:?>
+      	<?php if (!(isset($_SESSION['add']) && $_SESSION['add']==1)) {
+      		$_SESSION['rerror']='';
+      	}else{$_SESSION['add']=0;}?>
         <li><a class="modal-trigger" href="#login">Login</a></li>
         <li><a class="modal-trigger" href="#signup">Sign Up</a></li>
 					<ul id='drop2' class='dropdown-content'>
@@ -411,7 +417,7 @@
 				<form id="prodform" action='rentout.php' method="post" enctype="multipart/form-data">
 				<div class="row">
 				<?php if(isset($_SESSION['renterror'])):?>
-							<strong><center><p id="serror" class="red-text" ><?php echo $_SESSION['renterror']; ?></p></center></strong>
+							<strong><center><span id="serror" class="red-text" ><?php echo $_SESSION['renterror']; ?></span></center></strong>
 				<?php endif;?>
 				</div>
 				<div class="row">
@@ -430,7 +436,7 @@
 								<input type="file" name="files[]" multiple required>
 							</div>
 							<div class="file-path-wrapper">
-								<input class="file-path validate" type="text" placeholder="Upload one or more images (Maximum Size : 1 MB)">
+								<input class="file-path validate" type="text" placeholder="Upload one or more images (Maximum Size of each image : 1 MB)">
 							</div>
 						</div>
 				</div>

@@ -61,7 +61,7 @@
 			  <ul>
 				<div class="card no-margin">
 					<div class="card-image" style="background:#FFF;height:200px;"> <!--F44336-->
-							<a href="index.php"><img src="images/logo.png" style="transform:scale(0.9,.9);"></a>
+							<a href="index.php"><img src="images/sample-1.png" style="transform:scale(0.9,.9);"></a>
 						  <!--<span class="card-title">DalalBull</span>-->
 					</div>
 							   
@@ -86,7 +86,8 @@
       <ul id="nav-mobile" class="right hide-on-med-and-down">
              <li><a class='btn nav-wrapper hide-on-med-and-down' style="background:transparent;border:1px solid white;" id="rent" href='addproduct.php' style="line-height: 30px;">Rent Your Item Now</a></li>
       <?php if (isset($_SESSION['loggedin']) && $_SESSION['loggedin']): ?>
-        <?php if(getimagesize('http://localhost/handminiproject/images/profile_pics/'.$_SESSION['uid'])!==false): ?><li><img style="height:50px;width:50px;"src=<?php echo "images/profile_pics/".$_SESSION['uid'];?> class="circle propic" onerror="this.src='images/logo.png';"><?php else:?><li><img style="height:50px;width:50px;"src="images/sample-1.jpg" class="circle propic"><?php endif;?></li><li style="padding-left:10px;"><?php echo $_SESSION["name"];?></li></li><li><a href="#" data-activates="drop" class="dropdown-button  dropdown-button1 disableClick"><i class="material-icons ">arrow_drop_down</i></a></li> 
+        <?php $_SESSION['rerror']='';
+ if(getimagesize('http://localhost/handminiproject/images/profile_pics/'.$_SESSION['uid'])!==false): ?><li><img style="height:50px;width:50px;"src=<?php echo "images/profile_pics/".$_SESSION['uid'];?> class="circle propic" onerror="this.src='images/logo.png';"><?php else:?><li><img style="height:50px;width:50px;"src="images/sample-1.jpg" class="circle propic"><?php  endif;?></li><li style="padding-left:10px;"><?php echo $_SESSION["name"];?></li></li><li><a href="#" data-activates="drop" class="dropdown-button  dropdown-button1 disableClick"><i class="material-icons ">arrow_drop_down</i></a></li> 
 					<ul id='drop' class='dropdown-content'>
 						<li><a href="myaccount.php">My Account</a></li>
 						<li class="divider"></li>
@@ -94,6 +95,9 @@
 					</ul>
 		
       <?php else:?>
+      	<?php if (!(isset($_SESSION['add']) && $_SESSION['add']==1)) {
+      		$_SESSION['rerror']='';
+      	}else{$_SESSION['add']=0;}?>
         <li><a class="modal-trigger" href="#login">Login</a></li>
         <li><a class="modal-trigger" href="#signup">Sign Up</a></li>
 					<ul id='drop2' class='dropdown-content'>
@@ -437,9 +441,11 @@
 				<div class="col s12 m8">
 				<div class="slider">
 				<ul class="slides">
+					<?php if (getimagesize('http://localhost/handminiproject/images/products/1/'.$pid)!==false): ?> 
 					<li>
 						<img src='images/products/1/<?php echo "$pid";?>' onerror="this.src='images/logo.png'" height="200" width="300"/>
 					</li>
+				<?php endif; ?>
 					<?php if (getimagesize('http://localhost/handminiproject/images/products/2/'.$pid)!==false): ?> 
 					<li>
 						<img src='images/products/2/<?php echo "$pid";?>' onerror="this.src='images/logo.png'" height="200" width="300"/>
@@ -506,13 +512,17 @@
                          
                          <div id="page3" class="row " style="padding 10px;">
                             <center>
-                            <h4>Final</h4>
+                            <h4>Checkout</h4>
+                            <span class="hide" id='pid'><?php echo $pid; ?></span>
+                            <strong><span id="logerror" class="red-text"></span></strong>
+                            <p>You accept the terms and conditions when you click the RENT button. Your rent request will be placed, details of which will be notified to you via <br>E-mail.</p>
                             </center>
                          </div>
                      
                          <div class="modal-footer">
                             <a id="prev" class="btn-floating btn-small waves-effect waves-light teal left"><i class="material-icons activator">skip_previous</i></a>
                             <a id="next" class="btn-floating btn-small waves-effect waves-light teal right"><i class="material-icons activator right">skip_next</i></a>
+                            <button id="checkout" class="btn-flat waves-effect waves-light right"><a href="#" class="green-text text-darken-4">RENT</a><i class="material-icons activator right">done</i></button>
                         </div>
                     </div>
                 </div>				
@@ -528,38 +538,53 @@
 						
 						  <ul class="collection with-header">
 							<li class="collection-header"><h4>User Reviews</h4></li>
-							<li class="collection-item avatar">
-							  <img src="images/logo.png" alt="" class="circle">
-							  <span class="title">Title</span>
-							  <p>First Line <br>
-								 Second Line
-							  </p>
-							  <a href="#!" class="secondary-content"><i class="material-icons">grade</i></a>
+							<?php
+								$stmt->close(); 
+							    $query= "SELECT u_ID,title,description,rating FROM Review WHERE p_ID=? ORDER BY review_ID DESC";
+								$stmt=$conn->prepare($query);		
+	    						$stmt->bind_param('s',$pid);	
+								$stmt->execute();
+								$description='';
+								$title='';
+								$rid='';
+								$rating='';
+								$num_rows=0;
+								$stmt->bind_result($rid,$title,$description,$rating);
+								while($stmt->fetch() && $num_rows<5) {
+									$num_rows++;
+									?>
+									<li class="collection-item avatar">
+									<?php
+								 if((getimagesize('http://localhost/handminiproject/images/profile_pics/'.$rid)!==false)){
+								 	?>
+							  	<img src="images/profile_pics/<?php echo "$rid";?>" alt="" class="circle">
+								
+								<?php
+								 }else{
+								 	?>
+							  	<img src="images/sample-1.jpg" alt="" class="circle">
+								
+								<?php
+
+								 }
+								 ?>
+
+							  <div class="row">
+							  <b><span class="title"><?php echo "$title";?></span></b>
+							  </div>
+							  <p class=""><?php echo "$description";?></p>
+							  <a href="#!" class="secondary-content"><?php echo "$rating"; ?><i class="material-icons right">grade</i></a>
 							</li>
-							<li class="collection-item avatar">
-							  <img src="images/logo.png" alt="" class="circle">
-							  <span class="title">Title</span>
-							  <p>First Line <br>
-								 Second Line
-							  </p>
-							  <a href="#!" class="secondary-content"><i class="material-icons">grade</i></a>
-							</li>
-							<li class="collection-item avatar">
-							  <img src="images/logo.png" alt="" class="circle">
-							  <span class="title">Title</span>
-							  <p>First Line <br>
-								 Second Line
-							  </p>
-							  <a href="#!" class="secondary-content"><i class="material-icons">grade</i></a>
-							</li>
-							<li class="collection-item avatar">
-							 <img src="images/logo.png" alt="" class="circle">
-							  <span class="title">Title</span>
-							  <p>First Line <br>
-								 Second Line
-							  </p>
-							  <a href="#!" class="secondary-content"><i class="material-icons">grade</i></a>
-							</li>
+								
+								<?php
+								}
+								if ($num_rows==0) {  
+								  ?>
+								  <center><p>No Reviews For This Product</p></center>
+								  <?php
+								}
+	
+							?>
 						  </ul>
 					</div>
 				</div>

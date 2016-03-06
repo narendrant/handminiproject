@@ -4,7 +4,7 @@ $(document).ready(function(){
   $('#page1').hide();
   $('#page2').hide();
   $('#page3').hide();
-
+  $('#checkout').hide();
 	$('.slider').slider({full_width: true});
 	$('.modal-trigger').leanModal();
   $('.datepicker').pickadate({
@@ -104,8 +104,9 @@ $('#prev').on('click',function(){
   $('#page'+(current-1)).hide();
   $('#page'+(current+1)).hide();
  $('#page'+current).fadeIn(100);
+ $('#checkout').hide();
  if (current==0) {$('#prev').hide();$('#next').fadeIn(100);}else{
-  if (current==3) {$('#next').hide();$('#prev').fadeIn(100);}else{$('#next').fadeIn(100);$('#prev').fadeIn(100);}
+  if (current==3) {$('#next').hide();$('#checkout').fadeIn(100);$('#prev').fadeIn(100);}else{$('#next').fadeIn(100);$('#prev').fadeIn(100);}
  }
 });
 
@@ -117,7 +118,7 @@ $('#next').on('click',function(){
   $('#page'+(current+1)).hide();
   $('#page'+current).fadeIn(100);
  if (current==0) {$('#prev').hide();$('#next').fadeIn(100);}else{
-  if (current==3) {$('#next').hide();$('#prev').fadeIn(100);}else{$('#next').fadeIn(100);$('#prev').fadeIn(100);}
+  if (current==3) {$('#next').hide();$('#prev').fadeIn(100);$('#checkout').fadeIn(100);}else{$('#next').fadeIn(100);$('#prev').fadeIn(100);}
  }
  if (current==1 && $('#from').val()!='' && $('#to').val()!='') {
 
@@ -150,6 +151,26 @@ if (diffDays<7) {
 }
 }else{$('#cerror').html("Invalid Dates");}
 }
+});
+$('#checkout').on('click',function(){
+
+          var pid=$('#pid').html();
+           $.ajax({
+            type: 'post',
+            url: 'rent_item.php',
+            data: 'pid='+pid,
+            success: function (data) {
+              if(data=="notloggedin"){
+                console.log((data));
+                $('#logerror').html('You are not logged in');
+              }else{if (data=='notallowed'|| data=='notfound') {
+                $('#logerror').html('You Can\'t Rent This Item');                
+              }else{if(data=='notfound'){$('#logerror').html('No Such Product');}else{if(data=="success"){window.location="myaccount.php#recent_products";}}}
+            }
+              }
+            
+          });
+
 });
 
 });

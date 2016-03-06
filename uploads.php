@@ -66,11 +66,15 @@ function upload_prod_images($pid){
                 }
                 else
                 {
+                    if ($ext=="" && $i==0) {
+                        return "Upload Atleast One Image";
+                    }
                 	return "Unsupported Format";
                 }
             }
             if($i==0)
             	return "Upload Atleast One Image";
+            
             return "";
 
 

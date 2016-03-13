@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Mar 06, 2016 at 11:01 AM
+-- Generation Time: Mar 13, 2016 at 11:35 AM
 -- Server version: 5.5.47-0ubuntu0.14.04.1
 -- PHP Version: 5.5.9-1ubuntu4.14
 
@@ -32,7 +32,7 @@ CREATE TABLE IF NOT EXISTS `Complaint` (
   `title` varchar(30) NOT NULL COMMENT 'Title',
   `description` varchar(3000) NOT NULL COMMENT 'Description',
   PRIMARY KEY (`complaint_ID`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=5 ;
 
 --
 -- Dumping data for table `Complaint`
@@ -41,7 +41,8 @@ CREATE TABLE IF NOT EXISTS `Complaint` (
 INSERT INTO `Complaint` (`complaint_ID`, `t_ID`, `title`, `description`) VALUES
 (1, 19, '', ''),
 (2, 19, 'test', 'test'),
-(3, 19, 'testa', 'testa');
+(3, 19, 'testa', 'testa'),
+(4, 19, 'test', 'hello this product is useless.');
 
 -- --------------------------------------------------------
 

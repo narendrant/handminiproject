@@ -41,7 +41,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 			$result='';
 			$stmt->bind_result($result,$name);
 			$stmt->fetch();
-			move_uploaded_file($_FILES["profile_pic"]["tmp_name"],"images/profile_pics/".$result);
+			move_uploaded_file($_FILES["profile_pic"]["tmp_name"],"images/profile_pics/".$result.".png");
 			$_SESSION['loggedin']=TRUE;
     		$_SESSION['uid']=$result;
     		$_SESSION['name']=$name;

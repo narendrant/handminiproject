@@ -8,12 +8,12 @@
  else{
 		if($_SERVER["REQUEST_METHOD"] == "POST"){
 		    $tid=$_POST['tid'];
-		    $type='complaint'; 
+		    $type='3'; 
 			$sql = "UPDATE Transaction SET type=? WHERE transaction_ID=?;";
 			$stmt=$conn->prepare($sql);
 			$stmt->bind_param('ss',$type,$tid);
 			if($stmt->execute())
-				$result='complaint';
+				$result='2';
 			else
 				$result='error';
 		}

@@ -10,7 +10,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 		$uid=$_SESSION['uid'];
 		$puid='';
     	$availability='';
-    	$type='rentee';
+    	$type='0';
     	$query= "SELECT availability,u_ID FROM Product WHERE product_ID=?";
 		$stmt=$conn->prepare($query);		
 	    $stmt->bind_param('s',$pid);	

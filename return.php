@@ -8,7 +8,7 @@
  else{
 		if($_SERVER["REQUEST_METHOD"] == "POST"){
 		    $tid=$_POST['tid'];
-		    $type='renter'; 
+		    $type='2'; 
 		    $uid=$_SESSION['uid'];
 		    $pid='';
 		    $rent_time=''; 

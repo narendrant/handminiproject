@@ -11,7 +11,16 @@
 		    $uid=$_SESSION['uid'];
 		    $pid='';
 		    $rent_time='';
-		    $type='rented'; 
+		    $type='1'; 
+			
+			$sql3 ="SELECT p_ID FROM Transaction WHERE transaction_ID=?;";
+			$stmt=$conn->prepare($sql3);
+			$stmt->bind_param('s',$tid);
+			$stmt->execute();
+			$stmt->bind_result($pid);
+			$stmt->fetch();
+			$stmt->close();
+
 			$sql3 ="DELETE FROM Transaction WHERE transaction_ID=?;";
 			$stmt=$conn->prepare($sql3);
 			$stmt->bind_param('s',$tid);
@@ -22,13 +31,13 @@
 			$stmt->close();
 			$sql = "UPDATE Product SET availability='1' WHERE product_ID=?; ";
 			$stmt=$conn->prepare($sql);
-			$stmt->bind_param('is',$availability,$pid);
+			$stmt->bind_param('s',$pid);
 			$stmt->execute();
 			
 			$stmt->close();
-			$sql = "UPDATE History SET type='2' WHERE transaction_ID=?;";
+			$sql = "UPDATE History SET type='2' WHERE p_ID=?;";
 			$stmt=$conn->prepare($sql);
-			$stmt->bind_param('s',$type,$tid);
+			$stmt->bind_param('s',$pid);
 			$stmt->execute();
 		}
  }

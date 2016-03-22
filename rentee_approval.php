@@ -8,7 +8,7 @@
  else{
 		if($_SERVER["REQUEST_METHOD"] == "POST"){
 		    $tid=$_POST['tid'];
-		    $type='rented'; 
+		    $type='1'; 
 			$sql = "UPDATE Transaction SET type=? WHERE transaction_ID=?;";
 			$stmt=$conn->prepare($sql);
 			$stmt->bind_param('ss',$type,$tid);

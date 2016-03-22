@@ -62,7 +62,7 @@ function upload_prod_images($pid){
 			if ($_FILES["files"]["tmp_name"][$key]["size"] > 1000000) {
     			return "Image Too Large";
 			}
-                        move_uploaded_file($file_tmp=$_FILES["files"]["tmp_name"][$key],"images/products/".$i."/".$pid);
+                        move_uploaded_file($file_tmp=$_FILES["files"]["tmp_name"][$key],"images/products/".$i."/".$pid.".png");
                 }
                 else
                 {

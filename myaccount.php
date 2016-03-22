@@ -109,7 +109,7 @@ if ($_SESSION['loggedin']==FALSE) {
              <li><a class='btn nav-wrapper hide-on-med-and-down' style="background:transparent;border:1px solid white;" id="rent" href='addproduct.php' style="line-height: 30px;">Rent Your Item Now</a></li>
       <?php if (isset($_SESSION['loggedin']) && $_SESSION['loggedin']): ?>
         <?php $_SESSION['rerror']='';
- if(getimagesize('http://localhost/handminiproject/images/profile_pics/'.$_SESSION['uid'])!==false): ?><li><img style="height:50px;width:50px;"src=<?php echo "images/profile_pics/".$_SESSION['uid'];?> class="circle propic" onerror="this.src='images/logo.png';"><?php else:?><li><img style="height:50px;width:50px;"src="images/sample-1.jpg" class="circle propic"><?php  endif;?></li><li style="padding-left:10px;"><?php echo $_SESSION["name"];?></li></li><li><a href="#" data-activates="drop" class="dropdown-button  dropdown-button1 disableClick"><i class="material-icons ">arrow_drop_down</i></a></li> 
+ if(getimagesize('http://localhost/handminiproject/images/profile_pics/'.$_SESSION['uid'].".png")!==false): ?><li><img style="height:50px;width:50px;"src=<?php echo "images/profile_pics/".$_SESSION['uid'].".png";?> class="circle propic" onerror="this.src='images/logo.png';"><?php else:?><li><img style="height:50px;width:50px;"src="images/sample-1.jpg" class="circle propic"><?php  endif;?></li><li style="padding-left:10px;"><?php echo $_SESSION["name"];?></li></li><li><a href="#" data-activates="drop" class="dropdown-button  dropdown-button1 disableClick"><i class="material-icons ">arrow_drop_down</i></a></li> 
 					<ul id='drop' class='dropdown-content'>
 						<!--<li><a href="myaccount.php">My Account</a></li>
 						<li class="divider"></li>-->
@@ -509,7 +509,7 @@ if ($_SESSION['loggedin']==FALSE) {
 		<?php } ?>
 			 <div class='card small'>
 				<div class='card-image waves-effect waves-block waves-light'>
-					<?php if(getimagesize('http://localhost/handminiproject/images/products/1/'.$pid)!==false): ?><img class='activator' src=<?php echo'images/products/1/'.$pid;?> onerror=\"this.src='images/logo.png'\"><?php else:?><img src="images/logo.png"><?php endif;?>
+					<?php if(getimagesize('http://localhost/handminiproject/images/products/1/'.$pid.".png")!==false): ?><img class='activator' src=<?php echo'images/products/1/'.$pid.".png";?> onerror=\"this.src='images/logo.png'\"><?php else:?><img src="images/logo.png"><?php endif;?>
 				
 			<?php	echo"</div>
 				<div class='card-content'>
@@ -567,8 +567,9 @@ if ($_SESSION['loggedin']==FALSE) {
             </thead>
 
             <tbody>";
-            $t1="renter";
-            $t2="rented";
+            $t1="2";
+            $t2="1";
+            $num_rows=0;
             foreach($pids as $id ) {
             	//echo $id;
 			   	$sql = "SELECT pname FROM Product WHERE product_ID=?";
@@ -577,7 +578,7 @@ if ($_SESSION['loggedin']==FALSE) {
 				$stmt->execute();
 				$pname='';
 				$stmt->bind_result($pname);
-				$num_rows=0;
+				//$num_rows=0;
 				$stmt->fetch();
 				//$conn->close();
 				$stmt->close();
@@ -592,10 +593,10 @@ if ($_SESSION['loggedin']==FALSE) {
 				$date='';
 				$type='';
 				$stmt->bind_result($tid,$rentee_id,$date,$type);
-				$num_rows=0;
+				//$num_rows=0;
 				//echo "string";
 				if($stmt->fetch()){
-				if(!$type=='complaint'){	
+				if(!($type=="3")){	
 				$num_rows++;
 				$date = date('M j Y ', strtotime($date));             	
             echo"  <tr>
@@ -647,8 +648,8 @@ if ($_SESSION['loggedin']==FALSE) {
 
             <tbody>";
 
-            $t1="rentee";
-            $t2="rented";
+            $t1="0";
+            $t2="1";
 				$conn1 = new mysqli($servername, $username, $password, $dbname);
 			   	$sql2 = "SELECT transaction_ID,p_ID,transaction_time,type FROM Transaction WHERE u_ID=?";
 				$stmt2=$conn1->prepare($sql2);
@@ -718,7 +719,7 @@ if ($_SESSION['loggedin']==FALSE) {
             <thead>
               <tr>
                   <th data-field='product name'>Product Name</th>
-                  <th data-field='transaction id'>Transaction ID</th>
+                  <th data-field='transaction id'>User ID</th>
                   <th data-field='renter'>Rentee ID</th>
                   <th data-field='date'>Date</th>
                   <th data-field='Review'>Complaint</th>
@@ -750,7 +751,7 @@ if ($_SESSION['loggedin']==FALSE) {
 				$type='';
 				$stmt->bind_result($tid,$rentee_id,$date,$type);
                 if ($stmt->fetch()) {
-                if($type=='complaint'){
+                if($type=='3'){
 				$date = date('M j Y ', strtotime($date));             	
               $num_rows++;
               echo"<tr>
@@ -769,15 +770,16 @@ if ($_SESSION['loggedin']==FALSE) {
             }
 			$stmt->close();
 			$sql = "SELECT h_ID,u_ID,`time`,type FROM History  WHERE p_ID=?;";
-			$stmt=$conn->prepare($sql);
-			$stmt->bind_param('s',$id);
-			$stmt->execute();
+			$stmt1=$conn->prepare($sql);
+			$stmt1->bind_param('s',$id);
+			$stmt1->execute();
 			$hid='';
 			$rentee_id='';
 			$date='';
 			$type='';
-			$stmt->bind_result($hid,$rentee_id,$date,$type);
-            if ($stmt->fetch()) {
+			$stmt1->bind_result($hid,$rentee_id,$date,$type);
+            while ($stmt1->fetch()) {
+            	//echo "hello";
              if ($type=='2') {
 				$date = date('M j Y ', strtotime($date));             	
               echo"<tr>
@@ -788,7 +790,9 @@ if ($_SESSION['loggedin']==FALSE) {
                 </tr>";
                 $num_rows++;
             }
-            $stmt->close();}}
+            }
+            $stmt1->close();
+        }
            echo "</tbody>
           </table>";
           if ($num_rows==0) {
@@ -851,7 +855,7 @@ if ($_SESSION['loggedin']==FALSE) {
       <i class="large material-icons">add</i>
     </a>
   </div>    
-<div class="modal col m6 offset-m3" id="success" style="height:1200px;">
+<div class="modal col m6 offset-m3" id="success">
                     <div class="modal-content">
                         	<center><p style="font-size:30px;color:teal;">Success</p>
                         <div class="modal-footer">
@@ -864,7 +868,7 @@ if ($_SESSION['loggedin']==FALSE) {
       <i class="large material-icons">add</i>
     </a>
   </div>    
-<div class="modal col m6 offset-m3" id="success1" style="height:1200px;">
+<div class="modal col m6 offset-m3" id="success1" >
                     <div class="modal-content">
                         	<center><p style="font-size:30px;color:teal;">Transaction Completed</p>
                         <div class="modal-footer">
@@ -880,7 +884,7 @@ if ($_SESSION['loggedin']==FALSE) {
                         </div>
                     </div>
                 </div>				
-<div class="modal col m6 offset-m3" id="rejectmodal" style="height:1200px;">
+<div class="modal col m6 offset-m3" id="rejectmodal" >
                     <div class="modal-content">
                         	<center><p style="font-size:30px;color:#EE6E73;">Query Recorded</p>
                         	<center><p>Your query has been recorded. Please visit the COMPLETED tab to post your complaint.</p>

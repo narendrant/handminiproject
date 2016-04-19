@@ -1,0 +1,402 @@
+\documentclass[11pt]{report}
+\usepackage{graphics}
+\usepackage{graphicx}
+\usepackage{epsfig}
+\usepackage{fancyhdr}
+\usepackage{fullpage}
+\usepackage{titlesec}% http://ctan.org/pkg/titlesec
+\setcounter{secnumdepth}{3}
+
+\begin{document}
+\renewcommand\bibname{References}
+\pagestyle{fancy}
+\fancyhead{}
+\fancyfoot{}
+\fancyfoot[c]{\thepage}
+\fancyfoot[l]{B.Tech CS 2012-16}
+\lhead{abcd}
+\renewcommand{\chaptermark}[1]{
+\markboth{\thechapter.\ #1}{}} 
+\renewcommand{\headrulewidth}{0.3pt}
+\fancyhead[r]{\slshape \leftmark}
+\addtolength{\headheight}{\baselineskip}
+
+\lhead{\nouppercase{\rightmark}}
+\rhead{\nouppercase{\leftmark}}
+\lhead{Short project name} % <====short project title here
+%\fancyhead[LO,RE]{\slshape \leftmark}
+%\bibliographystyle{plain}
+\title {Project Title}
+\author {regno1 Name1 \\ regno2 Name2 \\ regno3 Name3  }
+%\maketitle
+
+\begin{titlepage}
+\begin{center}
+
+%\topmargin100pt
+\Huge{\textbf{Project Title}}\\
+\vspace{0.05in}
+\large{\textbf{CS 16L2 Mini Project\\}}
+\vspace{1.2in}
+
+
+
+\begin{center}
+
+\Large{\textbf{rn1}}  \Large{\textbf{name1}}\\ 
+\Large{\textbf{rn2}}  \Large{\textbf{name2}}\\ 
+\Large{\textbf{rn3}}  \Large{\textbf{name3}}\\
+
+\end{center}
+
+\Large{\textbf{
+B. Tech Computer Science \& Engineering
+}}
+
+
+\vspace{2.0in}
+\begin{figure}[h]
+\begin{center}
+%\epsfig{width=1in, file=embN1.jpg}
+\epsfig{width=1.25in, file=logo.jpg}
+
+\end{center}
+\end{figure}
+%\vspace{.2in}
+\textbf{
+Department of Computer Engineering\\
+Model Engineering College, Thrikkakara\\
+Kochi 682021\\
+Phone: +91.484.2575370\\
+http://www.mec.ac.in\\
+hodcs@mec.ac.in\\
+\vspace{.2in}
+{\footnotesize MARCH 2015}
+}
+\end{center}
+\end{titlepage}
+
+
+
+%=================================================================================
+
+\begin{titlepage}
+\begin{center}
+\Large{\textbf{Model Engineering College, Thrikkakara}}\\
+\Large{\textbf{Dept. of Computer Engineering}}\\
+\end{center}
+\begin{figure}[h]
+\begin{center}
+\epsfig{width=1.75in, file=logo.jpg}
+\end{center}
+\end{figure}
+\begin{center}
+\Large{\textbf{C E R T I F I C A T E}}\\
+\vspace{.1in}
+\end{center}
+This is to certify that, this report titled \textbf{\textit{Project Title}} is a bonafide record of the work done by\\
+\begin{center}
+
+\Large{\textbf{rn1}}  \Large{\textbf{name1}}\\ 
+\Large{\textbf{rn2}}  \Large{\textbf{name2}}\\ 
+\Large{\textbf{rn3}}  \Large{\textbf{name3}}\\
+
+\end{center}
+\centerline {\textsf{Sixth Semester B. Tech Computer Science \& Engineering}} students, for the course work in \textbf{CS 16L2 Mini Project},  under our guidance and supervision, in partial 
+fulfilment of the requirements for the award of the degree, B. Tech Computer Science  and Engineering of \textbf{Cochin University of Science \& Technology}.
+\vspace{.1in}
+\begin{tabbing}
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\= xxxxxxxxxxxxxxxxxx\= \kill
+
+Guide			\>				\> Coordinator \\
+\end{tabbing}
+\begin{tabbing}
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\= xxxxxxxxxxxxxxxxxx\= \kill
+\vspace{.1in}\\		
+guide name \> \> Bijumon T \\
+Asst. Professor	\> \> Asst. Professor\\
+Computer  Engineering	\>	\> Computer  Engineering\\
+\end{tabbing}
+\vspace{.1in}
+%
+\begin{tabbing}
+xxxxxxxxxxxxxxxxxxxxxxx\= xxxxxxxxxxxxxxxxxx\= \kill
+
+			\>Head of the Department \\
+\\
+\\
+\ 24-3-2015 %date of presentation
+%\begin{center}
+\> Ahammed Siraj K K\\
+\> Associate Professor\\
+\> Computer  Engineering\\
+%\end{center}
+\end{tabbing}
+\end{titlepage}
+  
+%========================================================================================
+ 
+
+\begin{titlepage}
+%\pagebreak
+\vspace{.25in}	
+\begin{center}
+\Large\textbf{{Acknowledgments}}\\
+\end{center}
+%\LARGE{Acknowledgment}\\
+\normalsize
+\vspace{.25in}
+
+\vspace{.25in}
+blah blahhhh\\
+
+blah blah\\
+
+
+\begin{flushleft}
+\small{\texttt{team member name1}}\\
+\small{\texttt{team member name2}}\\
+\small{\texttt{team member name3}}
+\end{flushleft}
+ 
+\end{titlepage}
+
+%=================================================================== 
+ 
+\begin{abstract}
+\pagenumbering{roman}
+
+This project is an attempt to implement a distributed computing environment so 
+as to demonstrate its contribution to the ever alive need for more 
+computing power. The implementation is based on the Parallel Virtual Machine(PVM) 
+ model.  The essentials of PVM as required by the programs in this project are 
+covered from a practical approach. Algorithms to solve the following problems are 
+used to demonstrate the concepts covered. .......
+
+\end{abstract}
+
+\tableofcontents
+
+%===============================================================
+
+\chapter {Introduction}
+\label{intro}
+
+\pagenumbering{arabic}
+ 
+Add sufficient sections\\
+include overview/motivation 
+
+\section{}
+%optional 
+ 
+ 
+%=================================================================
+
+\chapter {Literature Survey}
+\label{ls}
+ 
+\section{ Existing Systems}
+.............
+\subsection{Limitations of Existing Systems}
+\begin{itemize}
+  \item ....
+  \item.....
+\end{itemize}
+
+
+\section{Proposed System}
+ ...........
+\subsection{Advantages of Proposed System}
+\begin{itemize}
+  \item ....
+  \item .....
+\end{itemize}
+ 
+%======================================================= 
+ 
+\chapter {Proposed System}
+\label{ps}
+
+\section{Problem Statement}
+
+objective/the problem
+
+\section{Proposed Solution}
+
+the solution
+
+\textbf{Input:} input here
+
+\textbf{Output:} output here %expected output/outcome
+
+%======================================================= 
+ 
+\chapter {Software Requirement Specification}
+\label{srs}
+
+% refer your SRS report
+
+\section{Introduction}
+\subsection{Purpose}
+purpose of doc
+\subsection{Intended audience}
+...
+\subsection{Project Scope}
+.......
+\subsection{Design and Implementation Constraints}
+.......
+\subsection{Assumptions and Dependencies}
+......
+
+%%%%%
+\section{Functional and Non-Functional Requirements}
+
+\subsection{Functional Requirements}
+...............................
+detailed description about each requirement
+
+\subsection{Non Functional Requirements}
+ ...........................
+ detailed description about each requirement
+
+%%%%%%%%%
+
+\section{Hardware \& Software Requirements}
+
+\subsection{Hardware Requirements}
+\begin{itemize}
+  \item ...
+  \item ...
+\end{itemize}
+\subsection{Software Requirements}
+\begin{itemize}
+  \item ...
+  \item ...
+\end{itemize}
+
+  
+%=================================================================
+
+\chapter{System Design}
+\label{xx}
+ 
+%Include all the design documents section wise
+%Algorithms should be shown clearly
+%Refer design report
+
+
+
+%%%%%%%%%%%%
+
+\section{Block Diagrams} 
+%optional
+include figure if any. Else remove this subsection
+
+\subsection{Block Diagram of Overall System}
+%optional for web project
+include figure if any. Else remove this subsection
+
+\subsection{Modular Division}
+%optional for web project
+include figures if any.Else remove this subsection
+
+%%%%%%%%%%%%
+
+\section{Dataflow Diagrams}
+
+include DFD LEVEL 0,LEVEL 1 etc
+
+%%%%%%%%%%%%%%%%
+
+\section{Usecase Diagrams} 
+%optional for non-web project
+include figure if any. Else remove this subsection
+
+%%%%%%%%%%
+
+\section{Class Diagrams} 
+
+include figure if any. Else remove this subsection
+
+%%%%%%%%%%%
+
+\section{Algorithms}
+%optional
+details about algorithm if you have any. else remove this section
+
+\subsection{Name of Algorithm1}
+%optional
+Purpose and algorithm description in correct format. % refer algorithmic format using Latex to see how to include an algorithm!!
+
+%%%%%%%%%%
+
+\section{Database Design}
+
+Provide the database design here like DB table, its description etc.
+\subsection{Database Tables}
+
+DB table details
+
+\subsection{ER Diagram}
+
+include diagrams with proper titles
+
+
+%======================================================
+
+\chapter{Implementation}
+% detailed description on implementation
+
+\section{Overview of Technologies Used}
+% give the overview of different technologies/ frameworks/ packages used for your project in neat and clean manner with proper headings and subheadings. ( eg: .NET / Java / GTK etc)
+\subsection{Technology1}
+...........................
+\subsection{Technology2}
+.............................
+etc.....
+
+%%%%%%
+
+\section{Testing}
+% give the overview about the tests you performed for your project  and your test plan
+
+\subsection{Types of Testing}
+........................
+
+\subsection{Test Plan}
+..........................
+
+%%%%%
+
+\section{Results}
+% screenshots of your system with proper subtitles.
+
+
+%==========================================================
+\chapter{Conclusion}
+\label {con}
+
+May contain subheadings such as 
+
+\section{Conclusion}
+% conclusion
+\section{Future Scope}
+% future enhancements possible    
+
+%============================================================
+
+\begin{thebibliography}{}
+
+\addcontentsline{toc}{chapter}{References}
+
+\bibitem{1} Qian Xu, Srenivas Varadarajan, Chaitali Chakrabarti, and Lina J. Karam, \textquotedblleft A Distributed Canny Edge Detector: Algorithm and FPGA Implementation\textquotedblright , \textit{IEEE Transcation on Image Processing}, VOL. 23, NO. 7, July 2014.
+
+\bibitem{2} \textquotedblleft Extensible Markup Language (XML)\textquotedblright [Online].\\
+Available: $http://www.w3.org/TR/xml/$
+
+
+\end{thebibliography}
+
+
+\end{document}

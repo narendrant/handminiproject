@@ -41,13 +41,13 @@
 			  </ul>
 				  
 			  <ul class="no-padding">
-				  <li  class="bold"><a class="waves-effect waves-teal sidenava" href="/handminiproject/categorypage.php?cid=Electronics And Home Appliances">Electronics & Appliances</a></li>
-				  <li  class="bold"><a class="waves-effect waves-teal sidenava" href="/handminiproject/categorypage.php?cid=Furniture">Furniture</a></li>
-				  <li  class="bold"><a class="waves-effect waves-teal sidenava" href="/handminiproject/categorypage.php?cid=Bikes And Scooters">Bikes & Scooters</a></li>
-				  <li  class="bold"><a class="waves-effect waves-teal sidenava" href="/handminiproject/categorypage.php?cid=Power Tools">Power Tools</a></li>
-				  <li  class="bold"><a class="waves-effect waves-teal sidenava" href="/handminiproject/categorypage.php?cid=Musical Instruments">Musical Instruments</a></li>
-				  <li  class="bold"><a class="waves-effect waves-teal sidenava" href="/handminiproject/categorypage.php?cid=Baby Accessories And Toys">Baby Accessories & Toys</a></li>
-				  <li  class="bold"><a class="waves-effect waves-teal sidenava" href="/handminiproject/categorypage.php?cid=Others">Others</a></li>
+				  <li  class="bold"><a class="waves-effect waves-teal sidenava" href="categorypage.php?cid=Electronics And Home Appliances">Electronics & Appliances</a></li>
+				  <li  class="bold"><a class="waves-effect waves-teal sidenava" href="categorypage.php?cid=Furniture">Furniture</a></li>
+				  <li  class="bold"><a class="waves-effect waves-teal sidenava" href="categorypage.php?cid=Bikes And Scooters">Bikes & Scooters</a></li>
+				  <li  class="bold"><a class="waves-effect waves-teal sidenava" href="categorypage.php?cid=Power Tools">Power Tools</a></li>
+				  <li  class="bold"><a class="waves-effect waves-teal sidenava" href="categorypage.php?cid=Musical Instruments">Musical Instruments</a></li>
+				  <li  class="bold"><a class="waves-effect waves-teal sidenava" href="categorypage.php?cid=Baby Accessories And Toys">Baby Accessories & Toys</a></li>
+				  <li  class="bold"><a class="waves-effect waves-teal sidenava" href="categorypage.php?cid=Others">Others</a></li>
 			  </ul>
 		  </ul>
 	   <div class="">

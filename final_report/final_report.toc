@@ -90,8 +90,8 @@
 \contentsline {subsection}{\numberline {6.2.1}Types of Testing}{26}
 \contentsline {subsubsection}{\numberline {6.2.1.1}Alpha Testing}{26}
 \contentsline {subsubsection}{\numberline {6.2.1.2}Beta Testing}{26}
-\contentsline {section}{\numberline {6.3}Results}{26}
-\contentsline {chapter}{\numberline {7}Conclusion}{27}
-\contentsline {section}{\numberline {7.1}Conclusion}{27}
-\contentsline {section}{\numberline {7.2}Future Scope}{27}
-\contentsline {chapter}{References}{28}
+\contentsline {section}{\numberline {6.3}Results}{27}
+\contentsline {chapter}{\numberline {7}Conclusion}{38}
+\contentsline {section}{\numberline {7.1}Conclusion}{38}
+\contentsline {section}{\numberline {7.2}Future Scope}{38}
+\contentsline {chapter}{References}{39}

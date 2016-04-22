@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2016.4.7)  22 APR 2016 05:26
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2016.4.7)  22 APR 2016 06:57
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -502,18 +502,170 @@ Overfull \hbox (6.90523pt too wide) in paragraph at lines 728--729
 sim-plify the client-side script-ing of HTML.[2]
  []
 
-[26]
-Chapter 7.
-[27
+File: homepage.png Graphic file (type png)
+<use homepage.png>
+Package pdftex.def Info: homepage.png used on input line 747.
+(pdftex.def)             Requested size: 433.62pt x 227.12207pt.
+File: login.png Graphic file (type png)
+ <use login.png>
+Package pdftex.def Info: login.png used on input line 751.
+(pdftex.def)             Requested size: 433.62pt x 250.68141pt.
+File: homepage_mobile.png Graphic file (type png)
+ <use homepage_mobile.png>
+Package pdftex.def Info: homepage_mobile.png used on input line 756.
+(pdftex.def)             Requested size: 289.07999pt x 373.97621pt.
 
-] [28
+<search.png, id=130, 1284.8pt x 761.84625pt>
+File: search.png Graphic file (type png)
+ <use search.png>
+Package pdftex.def Info: search.png used on input line 761.
+(pdftex.def)             Requested size: 433.62pt x 257.11783pt.
+
+<product.png, id=131, 1283.79625pt x 765.86125pt>
+File: product.png Graphic file (type png)
+ <use product.png>
+Package pdftex.def Info: product.png used on input line 765.
+(pdftex.def)             Requested size: 433.62pt x 258.67152pt.
+
+<search_mobile.png, id=132, 503.8825pt x 674.52pt>
+File: search_mobile.png Graphic file (type png)
+ <use search_mobile.png>
+Package pdftex.def Info: search_mobile.png used on input line 770.
+(pdftex.def)             Requested size: 289.07999pt x 386.97115pt.
+
+<searchresults.png, id=133, 1284.8pt x 763.85374pt>
+File: searchresults.png Graphic file (type png)
+ <use searchresults.png>
+Package pdftex.def Info: searchresults.png used on input line 775.
+(pdftex.def)             Requested size: 433.62pt x 257.79533pt.
+
+<category.png, id=134, 1284.8pt x 765.86125pt>
+File: category.png Graphic file (type png)
+ <use category.png>
+Package pdftex.def Info: category.png used on input line 779.
+(pdftex.def)             Requested size: 433.62pt x 258.47285pt.
+ [26]
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+<options.png, id=138, 1284.8pt x 765.86125pt>
+File: options.png Graphic file (type png)
+ <use options.png>
+Package pdftex.def Info: options.png used on input line 785.
+(pdftex.def)             Requested size: 433.62pt x 258.47285pt.
+
+<myaccount.png, id=139, 1284.8pt x 764.8575pt>
+File: myaccount.png Graphic file (type png)
+ <use myaccount.png>
+Package pdftex.def Info: myaccount.png used on input line 789.
+(pdftex.def)             Requested size: 433.62pt x 258.1341pt.
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+<myprod.png, id=140, 1284.8pt x 764.8575pt>
+File: myprod.png Graphic file (type png)
+ <use myprod.png>
+Package pdftex.def Info: myprod.png used on input line 794.
+(pdftex.def)             Requested size: 433.62pt x 258.1341pt.
+
+<rentcalc.png, id=141, 1284.8pt x 764.8575pt>
+File: rentcalc.png Graphic file (type png)
+ <use rentcalc.png>
+Package pdftex.def Info: rentcalc.png used on input line 798.
+(pdftex.def)             Requested size: 433.62pt x 258.1341pt.
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+<rentout1.png, id=142, 1284.8pt x 766.865pt>
+File: rentout1.png Graphic file (type png)
+ <use rentout1.png>
+Package pdftex.def Info: rentout1.png used on input line 803.
+(pdftex.def)             Requested size: 433.62pt x 258.81163pt.
+
+<rentout2.png, id=143, 1284.8pt x 766.865pt>
+File: rentout2.png Graphic file (type png)
+ <use rentout2.png>
+Package pdftex.def Info: rentout2.png used on input line 807.
+(pdftex.def)             Requested size: 433.62pt x 258.81163pt.
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+<checkout.png, id=144, 1284.8pt x 762.85pt>
+File: checkout.png Graphic file (type png)
+ <use checkout.png>
+Package pdftex.def Info: checkout.png used on input line 812.
+(pdftex.def)             Requested size: 433.62pt x 257.45659pt.
+
+<approval.png, id=145, 1284.8pt x 764.8575pt>
+File: approval.png Graphic file (type png)
+ <use approval.png>
+Package pdftex.def Info: approval.png used on input line 816.
+(pdftex.def)             Requested size: 433.62pt x 258.1341pt.
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+<active.png, id=146, 1284.8pt x 764.8575pt>
+File: active.png Graphic file (type png)
+ <use active.png>
+Package pdftex.def Info: active.png used on input line 821.
+(pdftex.def)             Requested size: 433.62pt x 258.1341pt.
+
+<return.png, id=147, 1284.8pt x 765.86125pt>
+File: return.png Graphic file (type png)
+ <use return.png>
+Package pdftex.def Info: return.png used on input line 825.
+(pdftex.def)             Requested size: 433.62pt x 258.47285pt.
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+<completed.png, id=148, 1284.8pt x 763.85374pt>
+File: completed.png Graphic file (type png)
+ <use completed.png>
+Package pdftex.def Info: completed.png used on input line 830.
+(pdftex.def)             Requested size: 433.62pt x 257.79533pt.
+
+<addreview.png, id=149, 1284.8pt x 762.85pt>
+File: addreview.png Graphic file (type png)
+ <use addreview.png>
+Package pdftex.def Info: addreview.png used on input line 834.
+(pdftex.def)             Requested size: 433.62pt x 257.45659pt.
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+[27] [28] [29 <./search.png> <./product.png>] [30 <./search_mobile.png>]
+[31 <./searchresults.png> <./category.png>] [32 <./options.png> <./myaccount.pn
+g>] [33 <./myprod.png> <./rentcalc.png>] [34 <./rentout1.png> <./rentout2.png>]
+[35 <./checkout.png> <./approval.png>] [36 <./active.png> <./return.png>]
+[37 <./completed.png> <./addreview.png>]
+Chapter 7.
+[38
+
+] [39
 
 ] (./final_report.aux) ) 
 Here is how much of TeX's memory you used:
- 2068 strings out of 493089
- 29010 string characters out of 6134843
+ 2151 strings out of 493089
+ 30355 string characters out of 6134843
  104958 words of memory out of 5000000
- 5525 multiletter control sequences out of 15000+600000
+ 5593 multiletter control sequences out of 15000+600000
  10249 words of font info for 36 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  38i,10n,43p,952b,352s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -527,10 +679,10 @@ onts/cm/cmr10.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfon
 ts/cm/cmss10.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfont
 s/cm/cmsy10.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts
 /cm/cmtt10.pfb>
-Output written on final_report.pdf (35 pages, 4841796 bytes).
+Output written on final_report.pdf (46 pages, 12095401 bytes).
 PDF statistics:
- 171 PDF objects out of 1000 (max. 8388607)
- 106 compressed objects within 2 object streams
+ 242 PDF objects out of 1000 (max. 8388607)
+ 132 compressed objects within 2 object streams
  0 named destinations out of 1000 (max. 500000)
- 71 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 156 words of extra memory for PDF output out of 10000 (max. 10000000)
 

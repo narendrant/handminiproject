@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2016.4.7)  19 APR 2016 22:25
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2016.4.7)  22 APR 2016 05:26
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -178,10 +178,10 @@ jpg>]
 File: logo.jpg Graphic file (type jpg)
 
 <use logo.jpg>
-Package pdftex.def Info: logo.jpg used on input line 89.
+Package pdftex.def Info: logo.jpg used on input line 91.
 (pdftex.def)             Requested size: 126.47249pt x 126.47156pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 96--97
+Underfull \hbox (badness 10000) in paragraph at lines 98--99
 
  []
 
@@ -201,7 +201,7 @@ LaTeX Font Info:    External font `cmex10' loaded for size
  [3]
 Chapter 1.
 
-Underfull \hbox (badness 10000) in paragraph at lines 192--193
+Underfull \hbox (badness 10000) in paragraph at lines 193--194
 
  []
 
@@ -215,13 +215,13 @@ Missing character: There is no ™ in font cmr10!
 
 ]
 Chapter 2.
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 209.
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 210.
 
 (/usr/local/texlive/2015/texmf-dist/tex/latex/base/omscmr.fd
 File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10.95> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 209.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 210.
  [2
 
 ] [3]
@@ -229,7 +229,7 @@ Chapter 3.
 [4
 
 ]
-Underfull \hbox (badness 10000) in paragraph at lines 254--255
+Underfull \hbox (badness 10000) in paragraph at lines 255--256
 
  []
 
@@ -268,108 +268,269 @@ Missing character: There is no ­ in font cmr10!
 Missing character: There is no Â in font cmr10!
 Missing character: There is no ­ in font cmr10!
 
-Underfull \hbox (badness 10000) in paragraph at lines 339--341
+Underfull \hbox (badness 10000) in paragraph at lines 340--342
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 339--341
+Underfull \hbox (badness 10000) in paragraph at lines 340--342
 
  []
 
 [7]
-Underfull \hbox (badness 10000) in paragraph at lines 364--367
+Underfull \hbox (badness 10000) in paragraph at lines 365--368
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 364--367
+Underfull \hbox (badness 10000) in paragraph at lines 365--368
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 368--371
+Underfull \hbox (badness 10000) in paragraph at lines 369--372
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 368--371
+Underfull \hbox (badness 10000) in paragraph at lines 369--372
 
  []
 
 Missing character: There is no Â in font cmr10!
 Missing character: There is no ­ in font cmr10!
 
-Underfull \hbox (badness 10000) in paragraph at lines 372--375
+Underfull \hbox (badness 10000) in paragraph at lines 373--376
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 372--375
+Underfull \hbox (badness 10000) in paragraph at lines 373--376
 
  []
 
 [8] [9]
 Chapter 5.
-<level0.jpg, id=61, 429.605pt x 313.17pt>
+[10
+
+] <block1.jpg, id=65, 839.38594pt x 308.65312pt>
+File: block1.jpg Graphic file (type jpg)
+ <use block1.jpg>
+Package pdftex.def Info: block1.jpg used on input line 418.
+(pdftex.def)             Requested size: 433.62pt x 159.44557pt.
+
+<block2.jpg, id=66, 838.63312pt x 420.06938pt>
+File: block2.jpg Graphic file (type jpg)
+ <use block2.jpg>
+Package pdftex.def Info: block2.jpg used on input line 421.
+(pdftex.def)             Requested size: 433.62pt x 217.20026pt.
+
+<level0.jpg, id=67, 429.605pt x 313.17pt>
 File: level0.jpg Graphic file (type jpg)
  <use level0.jpg>
-Package pdftex.def Info: level0.jpg used on input line 414.
+Package pdftex.def Info: level0.jpg used on input line 428.
 (pdftex.def)             Requested size: 216.81pt x 158.05162pt.
 
-<level1.jpg, id=62, 1151.30125pt x 607.26875pt>
+<level1.jpg, id=68, 1151.30125pt x 607.26875pt>
 File: level1.jpg Graphic file (type jpg)
  <use level1.jpg>
-Package pdftex.def Info: level1.jpg used on input line 420.
+Package pdftex.def Info: level1.jpg used on input line 433.
 (pdftex.def)             Requested size: 469.75502pt x 247.77719pt.
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[10
 
-] [11] [12 <./level0.jpg> <./level1.jpg>]
+Underfull \hbox (badness 10000) in paragraph at lines 446--447
+
+ []
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 600--601
+
+ []
+
+<user.jpg, id=69, 621.82312pt x 289.08pt>
+File: user.jpg Graphic file (type jpg)
+ <use user.jpg>
+Package pdftex.def Info: user.jpg used on input line 603.
+(pdftex.def)             Requested size: 505.89pt x 235.18568pt.
+
+<product.jpg, id=70, 617.30624pt x 395.97937pt>
+File: product.jpg Graphic file (type jpg)
+ <use product.jpg>
+Package pdftex.def Info: product.jpg used on input line 605.
+(pdftex.def)             Requested size: 505.89pt x 324.51788pt.
+
+Overfull \hbox (36.13498pt too wide) in paragraph at lines 603--606
+ [] 
+ []
+
+
+Overfull \hbox (36.13498pt too wide) in paragraph at lines 603--606
+ [] 
+ []
+
+
+LaTeX Warning: Float too large for page by 17.18893pt on input line 606.
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+<admin_transaction.jpg, id=71, 621.07031pt x 404.26031pt>
+File: admin_transaction.jpg Graphic file (type jpg)
+
+<use admin_transaction.jpg>
+Package pdftex.def Info: admin_transaction.jpg used on input line 609.
+(pdftex.def)             Requested size: 505.89pt x 329.28728pt.
+
+<history_complaint.jpg, id=72, 616.55344pt x 409.53pt>
+File: history_complaint.jpg Graphic file (type jpg)
+
+<use history_complaint.jpg>
+Package pdftex.def Info: history_complaint.jpg used on input line 611.
+(pdftex.def)             Requested size: 505.89pt x 336.03548pt.
+
+Overfull \hbox (36.13498pt too wide) in paragraph at lines 609--612
+ [][] 
+ []
+
+
+Overfull \hbox (36.13498pt too wide) in paragraph at lines 609--612
+ [] 
+ []
+
+
+LaTeX Warning: Float too large for page by 45.89275pt on input line 612.
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+<review.jpg, id=73, 616.55344pt x 213.04594pt>
+File: review.jpg Graphic file (type jpg)
+ <use review.jpg>
+Package pdftex.def Info: review.jpg used on input line 615.
+(pdftex.def)             Requested size: 505.89pt x 174.81256pt.
+
+Overfull \hbox (36.13498pt too wide) in paragraph at lines 615--617
+ [][] 
+ []
+
+
+LaTeX Warning: Float too large for page by 290.68256pt on input line 617.
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+<erdgm.jpg, id=74, 1127.21124pt x 796.9775pt>
+File: erdgm.jpg Graphic file (type jpg)
+ <use erdgm.jpg>
+Package pdftex.def Info: erdgm.jpg used on input line 631.
+(pdftex.def)             Requested size: 505.89pt x 357.688pt.
+
+Overfull \hbox (36.13498pt too wide) in paragraph at lines 631--632
+ [] 
+ []
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 638--641
+
+ []
+
+<homepage.png, id=75, 1245.65375pt x 652.4375pt>
+File: homepage.png Graphic file (type png)
+ <use homepage.png>
+Package pdftex.def Info: homepage.png used on input line 644.
+(pdftex.def)             Requested size: 433.62pt x 227.12207pt.
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+<homepage_mobile.png, id=77, 505.89pt x 654.445pt>
+File: homepage_mobile.png Graphic file (type png)
+ <use homepage_mobile.png>
+Package pdftex.def Info: homepage_mobile.png used on input line 648.
+(pdftex.def)             Requested size: 289.07999pt x 373.97621pt.
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+<login.png, id=78, 1284.8pt x 742.775pt>
+File: login.png Graphic file (type png)
+ <use login.png>
+Package pdftex.def Info: login.png used on input line 654.
+(pdftex.def)             Requested size: 289.07999pt x 167.11716pt.
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+[11 <./block1.jpg> <./block2.jpg>] [12 <./level0.jpg> <./level1.jpg>] [13]
+[14] [15] [16] [17 <./user.jpg> <./product.jpg>] [18 <./admin_transaction.jpg> 
+<./history_complaint.jpg>] [19 <./review.jpg>] [20 <./erdgm.jpg>] [21 <./homepa
+ge.png>] [22 <./homepage_mobile.png>] [23 <./login.png>]
 Chapter 6.
-[13
+[24
 
 ]
 Missing character: There is no â in font cmr10!
 Missing character: There is no € in font cmr10!
 Missing character: There is no ™ in font cmr10!
- [14]
-Overfull \hbox (6.90523pt too wide) in paragraph at lines 527--528
+ [25]
+Overfull \hbox (6.90523pt too wide) in paragraph at lines 728--729
 \OT1/cmr/m/n/10.95 jQuery is a cross-platform JavaScript li-brary de-signed to 
 sim-plify the client-side script-ing of HTML.[2]
  []
 
-[15]
+[26]
 Chapter 7.
-[16
+[27
 
-] [17
+] [28
 
 ] (./final_report.aux) ) 
 Here is how much of TeX's memory you used:
- 2009 strings out of 493089
- 28047 string characters out of 6134843
- 95958 words of memory out of 5000000
- 5478 multiletter control sequences out of 15000+600000
- 9941 words of font info for 35 fonts, out of 8000000 for 9000
+ 2068 strings out of 493089
+ 29010 string characters out of 6134843
+ 104958 words of memory out of 5000000
+ 5525 multiletter control sequences out of 15000+600000
+ 10249 words of font info for 36 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  38i,10n,43p,952b,352s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/local/texlive/2015/texmf-dist/fonts/type1/public/
 amsfonts/cm/cmbx10.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/a
 msfonts/cm/cmbx12.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/am
-sfonts/cm/cmbxti10.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/a
-msfonts/cm/cmmi10.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/am
-sfonts/cm/cmr10.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsf
-onts/cm/cmss10.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfo
-nts/cm/cmsy10.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfon
-ts/cm/cmtt10.pfb>
-Output written on final_report.pdf (24 pages, 867431 bytes).
+sfonts/cm/cmbx9.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsf
+onts/cm/cmbxti10.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/ams
+fonts/cm/cmmi10.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsf
+onts/cm/cmr10.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfon
+ts/cm/cmss10.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfont
+s/cm/cmsy10.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts
+/cm/cmtt10.pfb>
+Output written on final_report.pdf (35 pages, 4841796 bytes).
 PDF statistics:
- 116 PDF objects out of 1000 (max. 8388607)
- 78 compressed objects within 1 object stream
+ 171 PDF objects out of 1000 (max. 8388607)
+ 106 compressed objects within 2 object streams
  0 named destinations out of 1000 (max. 500000)
- 16 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 71 words of extra memory for PDF output out of 10000 (max. 10000000)
 

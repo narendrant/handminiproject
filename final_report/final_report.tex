@@ -71,6 +71,8 @@ Kochi 682021\\
 Phone: +91.484.2575370\\
 http://www.mec.ac.in\\
 hodcs@mec.ac.in\\
+\vspace{0in}
+{\footnotesize APRIL 2016}
 }
 \end{center}
 \end{titlepage}
@@ -124,8 +126,7 @@ xxxxxxxxxxxxxxxxxxxxxxx\= xxxxxxxxxxxxxxxxxx\= \kill
 
 			\>Head of the Department \\
 
-\\
-\  %date of presentation
+\\ 22-04-2016
 %\begin{center}
 \> Manilal D L\\
 \> Associate Professor\\
@@ -389,7 +390,6 @@ friendly, hence easily accessible.\\\\
 
   
 %=================================================================
-
 \chapter{System Design}
 \label{xx}
  
@@ -401,78 +401,243 @@ friendly, hence easily accessible.\\\\
 
 %%%%%%%%%%%%
 
-\section{Block Diagrams} 
 %optional
-include figure if any. Else remove this subsection
-
+\section{Introduction}
+\subsection{Purpose}
+This software design document describes the architecture and system design of our project online product rental portal. Here we give the different modules used in the project and describes the various parts of the project in detail. The design document has its intended audience as the software development team and the invigilators who are reviewing this product.
+\subsection{Overview}
+This document describes briefly the design of the web based printing system that is to be implemented. This document gives the details of the design of the product in many levels.
+\section{System Overview}
+This product will interface with the user?s browser since the basic idea is of e-commerce in nature. The final product will mainly have two type of interfaces, one for the users(Renters and Rentees) to log into their account to rent-out/rent-in products and the other for the administrator to log in and perform administrative tasks.
+\vspace{5in}
+\section{Block Diagrams} 
 \subsection{Architectural Design}
-
+\begin{figure}[h]
+  \centering
+    \includegraphics[width=6in]{block1.jpg} 
+	\caption{Admin}
+  \centering
+    \includegraphics[width=6in]{block2.jpg} 
+	\caption{User}
+\end{figure}
 %%%%%%%%%%%%
 \begin{figure}[h]
 \section{Dataflow Diagrams}
   \centering
     \includegraphics[width=3in]{level0.jpg} 
 	\caption{Level 0 DFD}
-
 % should be 1.1
 \vspace{1cm}
   \centering
     \includegraphics[width=\textwidth]{level1.jpg} 
 	\caption{Level 1 DFD}
-% should be 1.1
 \end{figure}
+% should be 1.1
 
 %\epsfig{width=8in,height=6in, file=co.png}
 
 %%%%%%%%%%%%%%%%
 
 
-
+\begin{figure}[h]
 \section{Algorithms}
 %optional
-details about algorithm if you have any. else remove this section
+We have mainly four types of algorithms, administrator tasks, renter specific algorithms, rentee specific algorithms and some that are applicable to all three categories.\\
 
 \subsection{Administrator}
 %optional
-Purpose and algorithm description in correct format. % refer algorithmic format using Latex to see how to include an algorithm!!
+\subsubsection{Admin Login}
+\begin{tabbing}
+\= xxx\= \kill
+function adminLogin (email, password)\\\{\\\hspace{0.3in}connect to DB\\\hspace{0.3in}if (email exists in DB) \{\\ \hspace{0.6in}if (password is correct)\\ 
+\hspace{1.2in}return true ;\\
+\hspace{0.3in} \}
+\hspace{0.3in}return false;\\
+\}
+\end{tabbing}
+\subsubsection{Close Complaint}
+\begin{tabbing}
+\= xxx\= \kill
+function closeComplaint (productID, renteeID)\\\{\\\hspace{0.3in}connect to DB\\\hspace{0.3in}if (complaint where renteeID and productID matches exists) \{\\ \hspace{0.6in}if (loggedin)\{\\ 
+\hspace{1.2in}Remove record from complaints;\\
+\hspace{1.2in};Update transaction history\\
+\hspace{1.2in}return true;\\
+\hspace{0.6in} \}\\
+\hspace{0.3in} \}\\
+\hspace{0.3in}return false;\\
+\}
+\end{tabbing}
+\end{figure}
+\begin{figure}[h]
 \subsection{Renter}
-%optional
-Purpose and algorithm description in correct format. % refer algorithmic format using Latex to see how to include an algorithm!!
+\subsubsection{Rent Out Product}
+\begin{tabbing}
+\= xxx\= \kill
+function rentOut (product, renterID)\\\{\\\hspace{0.3in}connect to DB\\\hspace{0.3in}if (renterID exists in DB) \{\\ \hspace{0.6in}if (loggedin)\{\\ 
+\hspace{1.2in}create new product entry in DB ;\\
+\hspace{1.2in}return true;\\
+\hspace{0.6in} \}\\
+\hspace{0.3in} \}\\
+\hspace{0.3in}return false;\\
+\}
+\end{tabbing}
+\subsubsection{Add Complaint}
+\begin{tabbing}
+\= xxx\= \kill
+function addComplaint (productID, renteeID,complaint)\\\{\\\hspace{0.3in}connect to DB\\\hspace{0.3in}if (transaction where renteeID and productID matches exists) \{\\ \hspace{0.6in}if (loggedin)\{\\ 
+\hspace{1.2in}Add new entry in Complaints for the given product;\\
+\hspace{1.2in}Update transaction history;\\
+\hspace{1.2in}Remove record from Transactions;\\
+\hspace{1.2in}return true;\\
+\hspace{0.6in} \}\\
+\hspace{0.3in} \}\\
+\hspace{0.3in}return false;\\
+\}
+\end{tabbing}
+\end{figure}
+\begin{figure}[h]
 \subsection{Rentee}
-%optional
-Purpose and algorithm description in correct format. % refer algorithmic format using Latex to see how to include an algorithm!!
+\subsubsection{Rent In Product}
+\begin{tabbing}
+\= xxx\= \kill
+function rentIn (product, userID)\\\{\\\hspace{0.3in}connect to DB\\\hspace{0.3in}if (product exists in DB) \{\\ \hspace{0.6in}if (loggedin)\{\\ 
+\hspace{1.2in}Update product status as not available;\\
+\hspace{1.2in}Add transaction entry with status pending\\
+\hspace{1.2in}Add history entry with current timestamp;\\
+\hspace{1.2in}return true;\\
+\hspace{0.6in} \}\\
+\hspace{0.3in} \}\\
+\hspace{0.3in}return false;\\
+\}
+\end{tabbing}
+\subsubsection{Approve/Reject Product}
+\begin{tabbing}
+\= xxx\= \kill
+function appReject (product, userID,apporrej)\\\{\\\hspace{0.3in}connect to DB\\\hspace{0.3in}if (product exists in transaction DB) \{\\ \hspace{0.6in}if (loggedin)\{\\ 
+\hspace{1.2in}if (approved)\{\\ 
+\hspace{1.5in} Update transaction status as rented;\\
+\hspace{1.5in}Update history entry with current timestamp;\\
+\hspace{1.2in} \}else\{\\
+\hspace{1.5in}Remove transaction entry;\\
+\hspace{1.2in} \}\\
+\hspace{1.2in}return true;\\
+\hspace{0.6in} \}\\
+\hspace{0.3in} \}\\
+\hspace{0.3in}return false;\\
+\}
+\end{tabbing}
+\end{figure}
+\begin{figure}[h]
 \subsection{Miscellaneous}
-%optional
-Purpose and algorithm description in correct format. % refer algorithmic format using Latex to see how to include an algorithm!!
-
+\subsubsection{User Signup}
+\begin{tabbing}
+\= xxx\= \kill
+function Signup (email, password,details)\\\{\\\hspace{0.3in}connect to DB\\\hspace{0.3in}if (email does not exist in DB) \{\\ \hspace{0.6in}Add new user entry;\\ 
+ \hspace{0.6in}Add new user details;\\ 
+ \hspace{0.6in}Hash and store password;\\ 
+\hspace{0.6in}return true ;\\
+\hspace{0.3in} \}\\
+\hspace{0.3in}return false;\\
+\}
+\end{tabbing}
+\subsubsection{User Login}
+\begin{tabbing}
+\= xxx\= \kill
+function userLogin (email, password)\\\{\\\hspace{0.3in}connect to DB\\\hspace{0.3in}if (email exists in DB) \{\\ \hspace{0.6in}if (password is correct)\\ 
+\hspace{1.2in}return true ;\\
+\hspace{0.3in} \}
+\hspace{0.3in}return false;\\
+\}
+\end{tabbing}
+\subsubsection{User Logout}
+\begin{tabbing}
+\= xxx\= \kill
+function userLogout ()\\\{\\\hspace{0.3in}connect to DB\\\hspace{0.3in}Destroy current session;\\
+\hspace{0.3in}return true;\\
+\}
+\end{tabbing}
+\end{figure}
 %%%%%%%%%%
 
+\begin{figure}[h]
 \section{Database Design}
-
-Provide the database design here like DB table, its description etc.
+Data is stored in the server machine with the aid of mySql database.\\
 \subsection{Database Tables}
-
-DB table details
-
+  \centering
+    \includegraphics[width=7in]{user.jpg} 
+  \centering
+    \includegraphics[width=7in]{product.jpg} 
+   \end{figure}
+\begin{figure}[h]
+  \centering
+    \includegraphics[width=7in]{admin_transaction.jpg} 
+  \centering
+    \includegraphics[width=7in]{history_complaint.jpg} 
+   \end{figure}
+\begin{figure}[h]
+  \centering
+    \includegraphics[width=7in]{review.jpg} 
+    \vspace{10in}
+   \end{figure}
+\begin{figure}[h]   
 \subsection{ER Diagram}
-
-include diagrams with proper titles
-
+Various entities used in product are:
+\begin{enumerate}
+\item{Admin}
+\item{User}
+\item{Product}
+\item{Transaction}
+\item{History}
+\item{Complaint}
+\item{Review}
+\end{enumerate}
+  \centering
+    \includegraphics[width=7in]{erdgm.jpg} 
+	\caption{ER Diagram}
+\end{figure}
+\begin{figure}[h]
 \section{Human Interface Design}
 
-Provide the database design here like DB table, its description etc.
 \subsection{Overview of User Interface}
-
-DB table details
-
+User logs in to the website using his/her email id and password. On logging in the user will be directed to the homepage where the product catalogue is displayed along with search and navigation options . Additionally he can navigate to check/update the status of his account. Also he can check his rental history. Furthermore, the user  can add products to be rented out. 
+\\Administrators will login to a separate page where he can carry out administrative tasks such as editing user/product details , updating complaint status, etc.\\
+All pages in the portal are mobile-friendly.\\
 \subsection{Screen Images}
-
-include diagrams with proper titles
-
+\vspace{0.5in}
+  \centering
+    \includegraphics[width=6in]{homepage.png} 
+    \end{figure}
+    \begin{figure}[h]
+  \centering
+    \includegraphics[width=4in]{homepage_mobile.png} 
+	\caption{Homepage}
+	\end{figure}
+    \begin{figure}[h]
+\vspace{0.5in}
+  \centering
+    \includegraphics[width=4in]{login.png} 
+	\caption{Login Screen}
+	\end{figure}
+\begin{figure}[h]
 \subsection{Screen Objects and Actions}
-
-include diagrams with proper titles
-
+\textbf{Home Screen}
+\begin{enumerate}
+\item{Login : Modal for login pops up}
+\item{Signup : Modal for signup pops up}
+\item{Search : Search for products based on location}
+\item{Navigation : Navigate to different category  pages}
+\item{Checkout Product : Navigate to the product's page}
+\item{Rent Item Now : Add product to be rented out}
+\end{enumerate}
+\end{figure}
+\begin{figure}[h]
+\textbf{Login Screen}
+\begin{enumerate}
+\item{Email ID : Used to enter the user email id}
+\item{Password : Used to enter password}
+\item{Login Button : Log in to the portal}
+\end{enumerate}
+\end{figure}
 
 %======================================================
 

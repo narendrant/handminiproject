@@ -45,40 +45,53 @@
 \contentsline {subsection}{\numberline {4.6.1}Hardware Requirements}{9}
 \contentsline {subsection}{\numberline {4.6.2}Software Requirements}{9}
 \contentsline {chapter}{\numberline {5}System Design}{10}
-\contentsline {section}{\numberline {5.1}Block Diagrams}{10}
-\contentsline {subsection}{\numberline {5.1.1}Architectural Design}{10}
-\contentsline {section}{\numberline {5.3}Algorithms}{10}
-\contentsline {subsection}{\numberline {5.3.1}Administrator}{10}
-\contentsline {subsection}{\numberline {5.3.2}Renter}{10}
-\contentsline {subsection}{\numberline {5.3.3}Rentee}{10}
-\contentsline {subsection}{\numberline {5.3.4}Miscellaneous}{10}
-\contentsline {section}{\numberline {5.4}Database Design}{10}
-\contentsline {subsection}{\numberline {5.4.1}Database Tables}{10}
-\contentsline {subsection}{\numberline {5.4.2}ER Diagram}{11}
-\contentsline {section}{\numberline {5.5}Human Interface Design}{11}
-\contentsline {subsection}{\numberline {5.5.1}Overview of User Interface}{11}
-\contentsline {subsection}{\numberline {5.5.2}Screen Images}{11}
-\contentsline {subsection}{\numberline {5.5.3}Screen Objects and Actions}{11}
-\contentsline {section}{\numberline {5.2}Dataflow Diagrams}{12}
-\contentsline {chapter}{\numberline {6}Implementation}{13}
-\contentsline {section}{\numberline {6.1}Overview of Technologies Used}{13}
-\contentsline {subsection}{\numberline {6.1.1}XAMP}{13}
-\contentsline {subsection}{\numberline {6.1.2}MSMTP}{13}
-\contentsline {subsection}{\numberline {6.1.3}PHP}{14}
-\contentsline {subsection}{\numberline {6.1.4}MySQL}{14}
-\contentsline {subsection}{\numberline {6.1.5}Git}{14}
-\contentsline {subsection}{\numberline {6.1.6}Web Frontend Technologies}{14}
-\contentsline {subsubsection}{\numberline {6.1.6.1}HTML}{14}
-\contentsline {subsubsection}{\numberline {6.1.6.2}CSS}{14}
-\contentsline {subsubsection}{\numberline {6.1.6.3}JavaScript}{15}
-\contentsline {subsubsection}{\numberline {6.1.6.4}jQuery}{15}
-\contentsline {subsubsection}{\numberline {6.1.6.5}Materializecss}{15}
-\contentsline {section}{\numberline {6.2}Testing}{15}
-\contentsline {subsection}{\numberline {6.2.1}Types of Testing}{15}
-\contentsline {subsubsection}{\numberline {6.2.1.1}Alpha Testing}{15}
-\contentsline {subsubsection}{\numberline {6.2.1.2}Beta Testing}{15}
-\contentsline {section}{\numberline {6.3}Results}{15}
-\contentsline {chapter}{\numberline {7}Conclusion}{16}
-\contentsline {section}{\numberline {7.1}Conclusion}{16}
-\contentsline {section}{\numberline {7.2}Future Scope}{16}
-\contentsline {chapter}{References}{17}
+\contentsline {section}{\numberline {5.1}Introduction}{10}
+\contentsline {subsection}{\numberline {5.1.1}Purpose}{10}
+\contentsline {subsection}{\numberline {5.1.2}Overview}{10}
+\contentsline {section}{\numberline {5.2}System Overview}{10}
+\contentsline {section}{\numberline {5.3}Block Diagrams}{11}
+\contentsline {subsection}{\numberline {5.3.1}Architectural Design}{11}
+\contentsline {section}{\numberline {5.4}Dataflow Diagrams}{12}
+\contentsline {section}{\numberline {5.5}Algorithms}{13}
+\contentsline {subsection}{\numberline {5.5.1}Administrator}{13}
+\contentsline {subsubsection}{\numberline {5.5.1.1}Admin Login}{13}
+\contentsline {subsubsection}{\numberline {5.5.1.2}Close Complaint}{13}
+\contentsline {subsection}{\numberline {5.5.2}Renter}{14}
+\contentsline {subsubsection}{\numberline {5.5.2.1}Rent Out Product}{14}
+\contentsline {subsubsection}{\numberline {5.5.2.2}Add Complaint}{14}
+\contentsline {subsection}{\numberline {5.5.3}Rentee}{15}
+\contentsline {subsubsection}{\numberline {5.5.3.1}Rent In Product}{15}
+\contentsline {subsubsection}{\numberline {5.5.3.2}Approve/Reject Product}{15}
+\contentsline {subsection}{\numberline {5.5.4}Miscellaneous}{16}
+\contentsline {subsubsection}{\numberline {5.5.4.1}User Signup}{16}
+\contentsline {subsubsection}{\numberline {5.5.4.2}User Login}{16}
+\contentsline {subsubsection}{\numberline {5.5.4.3}User Logout}{16}
+\contentsline {section}{\numberline {5.6}Database Design}{17}
+\contentsline {subsection}{\numberline {5.6.1}Database Tables}{17}
+\contentsline {subsection}{\numberline {5.6.2}ER Diagram}{20}
+\contentsline {section}{\numberline {5.7}Human Interface Design}{21}
+\contentsline {subsection}{\numberline {5.7.1}Overview of User Interface}{21}
+\contentsline {subsection}{\numberline {5.7.2}Screen Images}{21}
+\contentsline {subsection}{\numberline {5.7.3}Screen Objects and Actions}{23}
+\contentsline {chapter}{\numberline {6}Implementation}{24}
+\contentsline {section}{\numberline {6.1}Overview of Technologies Used}{24}
+\contentsline {subsection}{\numberline {6.1.1}XAMP}{24}
+\contentsline {subsection}{\numberline {6.1.2}MSMTP}{24}
+\contentsline {subsection}{\numberline {6.1.3}PHP}{25}
+\contentsline {subsection}{\numberline {6.1.4}MySQL}{25}
+\contentsline {subsection}{\numberline {6.1.5}Git}{25}
+\contentsline {subsection}{\numberline {6.1.6}Web Frontend Technologies}{25}
+\contentsline {subsubsection}{\numberline {6.1.6.1}HTML}{25}
+\contentsline {subsubsection}{\numberline {6.1.6.2}CSS}{25}
+\contentsline {subsubsection}{\numberline {6.1.6.3}JavaScript}{26}
+\contentsline {subsubsection}{\numberline {6.1.6.4}jQuery}{26}
+\contentsline {subsubsection}{\numberline {6.1.6.5}Materializecss}{26}
+\contentsline {section}{\numberline {6.2}Testing}{26}
+\contentsline {subsection}{\numberline {6.2.1}Types of Testing}{26}
+\contentsline {subsubsection}{\numberline {6.2.1.1}Alpha Testing}{26}
+\contentsline {subsubsection}{\numberline {6.2.1.2}Beta Testing}{26}
+\contentsline {section}{\numberline {6.3}Results}{26}
+\contentsline {chapter}{\numberline {7}Conclusion}{27}
+\contentsline {section}{\numberline {7.1}Conclusion}{27}
+\contentsline {section}{\numberline {7.2}Future Scope}{27}
+\contentsline {chapter}{References}{28}

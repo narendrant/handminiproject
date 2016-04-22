@@ -64,7 +64,7 @@
       <ul id="nav-mobile" class="right hide-on-med-and-down">
       <?php if (isset($_SESSION['loggedin']) && $_SESSION['loggedin']): ?>
         <?php $_SESSION['rerror']='';
- if(getimagesize('http://localhost/handminiproject/images/profile_pics/'.$_SESSION['uid'].".png")!==false): ?><li><img style="height:50px;width:50px;"src=<?php echo "images/profile_pics/".$_SESSION['uid'].".png";?> class="circle propic" onerror="this.src='images/logo.png';"><?php else:?><li><img style="height:50px;width:50px;"src="images/sample-1.jpg" class="circle propic"><?php  endif;?></li><li style="padding-left:10px;"><?php echo $_SESSION["name"];?></li></li><li><a href="#" data-activates="drop" class="dropdown-button  dropdown-button1 disableClick"><i class="material-icons ">arrow_drop_down</i></a></li> 
+ if(getimagesize('images/profile_pics/'.$_SESSION['uid'].".png")!==false): ?><li><img style="height:50px;width:50px;"src=<?php echo "images/profile_pics/".$_SESSION['uid'].".png";?> class="circle propic" onerror="this.src='images/logo.png';"><?php else:?><li><img style="height:50px;width:50px;"src="images/sample-1.jpg" class="circle propic"><?php  endif;?></li><li style="padding-left:10px;"><?php echo $_SESSION["name"];?></li></li><li><a href="#" data-activates="drop" class="dropdown-button  dropdown-button1 disableClick"><i class="material-icons ">arrow_drop_down</i></a></li> 
 					<ul id='drop' class='dropdown-content'>
 						<li><a href="myaccount.php">My Account</a></li>
 						<li class="divider"></li>
